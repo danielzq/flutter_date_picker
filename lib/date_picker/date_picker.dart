@@ -14,7 +14,7 @@ import 'month_view.dart';
 import 'picker_helper.dart';
 import 'year_view.dart';
 
-class SfDateRangePicker extends StatelessWidget {
+class CustomDateRangePicker extends StatelessWidget {
   /// Creates a material design date range picker.
   ///
   /// To restrict the date navigation and selection interaction use [minDate],
@@ -25,7 +25,7 @@ class SfDateRangePicker extends StatelessWidget {
   ///
   /// When the visible view changes, the widget will call the [onViewChanged]
   /// callback with the current view and the current view visible dates.
-  SfDateRangePicker({
+  CustomDateRangePicker({
     Key? key,
     DateRangePickerView view = DateRangePickerView.month,
     this.selectionMode = DateRangePickerSelectionMode.single,
@@ -101,7 +101,7 @@ class SfDateRangePicker extends StatelessWidget {
         viewSpacing = enableMultiView ? viewSpacing : 0,
         super(key: key);
 
-  /// Defines the view for the [SfDateRangePicker].
+  /// Defines the view for the [CustomDateRangePicker].
   ///
   /// Default to `DateRangePickerView.month`.
   ///
@@ -115,7 +115,7 @@ class SfDateRangePicker extends StatelessWidget {
   ///Widget build(BuildContext context) {
   ///    return MaterialApp(
   ///      home: Scaffold(
-  ///        body: SfDateRangePicker(
+  ///        body: CustomDateRangePicker(
   ///          view: DateRangePickerView.year,
   ///          minDate: DateTime(2019, 02, 05),
   ///          maxDate: DateTime(2021, 12, 06),
@@ -127,7 +127,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final DateRangePickerView view;
 
-  /// Defines the selection mode for [SfDateRangePicker].
+  /// Defines the selection mode for [CustomDateRangePicker].
   ///
   /// Defaults to `DateRangePickerSelectionMode.single`.
   ///
@@ -149,7 +149,7 @@ class SfDateRangePicker extends StatelessWidget {
   ///  Widget build(BuildContext context) {
   ///    return MaterialApp(
   ///      home: Scaffold(
-  ///        body: SfDateRangePicker(
+  ///        body: CustomDateRangePicker(
   ///          view: DateRangePickerView.month,
   ///          selectionMode: DateRangePickerSelectionMode.range,
   ///          minDate: DateTime(2019, 02, 05),
@@ -162,12 +162,12 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final DateRangePickerSelectionMode selectionMode;
 
-  /// Sets the style for customizing the [SfDateRangePicker] header view.
+  /// Sets the style for customizing the [CustomDateRangePicker] header view.
   ///
   /// Allows to customize the [DateRangePickerHeaderStyle.textStyle],
   /// [DateRangePickerHeaderStyle.textAlign] and
   /// [DateRangePickerHeaderStyle.backgroundColor] of the header view in
-  /// [SfDateRangePicker].
+  /// [CustomDateRangePicker].
   ///
   /// See also: [DateRangePickerHeaderStyle]
   ///
@@ -175,7 +175,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// Widget build(BuildContext context) {
   ///    return MaterialApp(
   ///      home: Scaffold(
-  ///        body: SfDateRangePicker(
+  ///        body: CustomDateRangePicker(
   ///          view: DateRangePickerView.month,
   ///          headerStyle: DateRangePickerHeaderStyle(
   ///            textAlign: TextAlign.left,
@@ -192,7 +192,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final DateRangePickerHeaderStyle headerStyle;
 
-  /// The height for header view to layout within this in [SfDateRangePicker]
+  /// The height for header view to layout within this in [CustomDateRangePicker]
   ///
   /// Defaults to value `40`.
   ///
@@ -206,7 +206,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// Widget build(BuildContext context) {
   ///    return MaterialApp(
   ///      home: Scaffold(
-  ///        body: SfDateRangePicker(
+  ///        body: CustomDateRangePicker(
   ///          view: DateRangePickerView.month,
   ///          headerHeight: 50,
   ///          showNavigationArrow: true,
@@ -218,7 +218,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final double headerHeight;
 
-  /// Color that highlights the today date cell in [SfDateRangePicker].
+  /// Color that highlights the today date cell in [CustomDateRangePicker].
   ///
   /// Allows to change the color that highlights the today date cell border in
   /// month, year, decade and century view in date range picker.
@@ -230,7 +230,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// Widget build(BuildContext context) {
   ///    return MaterialApp(
   ///      home: Scaffold(
-  ///        body: SfDateRangePicker(
+  ///        body: CustomDateRangePicker(
   ///          view: DateRangePickerView.month,
   ///          todayHighlightColor: Colors.red,
   ///          showNavigationArrow: true,
@@ -242,7 +242,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final Color? todayHighlightColor;
 
-  /// The color to fill the background of the [SfDateRangePicker].
+  /// The color to fill the background of the [CustomDateRangePicker].
   ///
   /// Defaults to null.
   ///
@@ -251,7 +251,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// Widget build(BuildContext context) {
   ///    return MaterialApp(
   ///      home: Scaffold(
-  ///        body: SfDateRangePicker(
+  ///        body: CustomDateRangePicker(
   ///          view: DateRangePickerView.month,
   ///          todayHighlightColor: Colors.red,
   ///          backgroundColor: Colors.cyanAccent,
@@ -278,7 +278,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// Widget build(BuildContext context) {
   ///    return MaterialApp(
   ///      home: Scaffold(
-  ///        body: SfDateRangePicker(
+  ///        body: CustomDateRangePicker(
   ///          view: DateRangePickerView.month,
   ///          selectionMode: DateRangePickerSelectionMode.single,
   ///          toggleDaySelection: true,
@@ -291,7 +291,7 @@ class SfDateRangePicker extends StatelessWidget {
   final bool toggleDaySelection;
 
   /// Used to enable or disable the view switching between [DateRangePickerView]
-  /// through interaction in the [SfDateRangePicker] header.
+  /// through interaction in the [CustomDateRangePicker] header.
   ///
   /// Selection is allowed for year, decade and century views when
   /// the [allowViewNavigation] property is false.
@@ -305,7 +305,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// Widget build(BuildContext context) {
   ///    return MaterialApp(
   ///      home: Scaffold(
-  ///        body: SfDateRangePicker(
+  ///        body: CustomDateRangePicker(
   ///          allowViewNavigation: false,
   ///       ),
   ///      ),
@@ -336,7 +336,7 @@ class SfDateRangePicker extends StatelessWidget {
   ///     appBar: AppBar(
   ///       title: const Text('Date range picker'),
   ///     ),
-  ///     body: SfDateRangePicker(
+  ///     body: CustomDateRangePicker(
   ///       controller: _controller,
   ///       cellBuilder:
   ///           (BuildContext context, DateRangePickerCellDetails cellDetails) {
@@ -404,7 +404,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// Widget build(BuildContext context) {
   ///    return MaterialApp(
   ///      home: Scaffold(
-  ///        body: SfDateRangePicker(
+  ///        body: CustomDateRangePicker(
   ///          enableMultiView: true,
   ///        ),
   ///      ),
@@ -416,11 +416,11 @@ class SfDateRangePicker extends StatelessWidget {
 
   /// Used to define the space[double] between multiple views when the
   /// [enableMultiView] is enabled.
-  /// Otherwise, the [viewSpacing] value as not applied in [SfDateRangePicker].
+  /// Otherwise, the [viewSpacing] value as not applied in [CustomDateRangePicker].
   ///
   /// Defaults to value `20`.
   ///
-  /// This value not applicable on [SfDateRangePicker] when
+  /// This value not applicable on [CustomDateRangePicker] when
   /// [navigationMode] is [DateRangePickerNavigationMode.scroll].
   ///
   /// ```dart
@@ -428,7 +428,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// Widget build(BuildContext context) {
   ///    return MaterialApp(
   ///      home: Scaffold(
-  ///        body: SfDateRangePicker(
+  ///        body: CustomDateRangePicker(
   ///          enableMultiView: true,
   ///          viewSpacing: 20,
   ///        ),
@@ -439,7 +439,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final double viewSpacing;
 
-  /// The radius for the [SfDateRangePicker] selection circle..
+  /// The radius for the [CustomDateRangePicker] selection circle..
   ///
   /// Defaults to null.
   ///
@@ -451,7 +451,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// Widget build(BuildContext context) {
   ///    return MaterialApp(
   ///      home: Scaffold(
-  ///        body: SfDateRangePicker(
+  ///        body: CustomDateRangePicker(
   ///          controller: _pickerController,
   ///          view: DateRangePickerView.month,
   ///          selectionMode: DateRangePickerSelectionMode.range,
@@ -465,11 +465,11 @@ class SfDateRangePicker extends StatelessWidget {
   final double selectionRadius;
 
   /// The text style for the text in the selected date or dates cell of
-  /// [SfDateRangePicker].
+  /// [CustomDateRangePicker].
   ///
   /// Defaults to null.
   ///
-  /// Using a [SfDateRangePickerTheme] gives more fine-grained control over the
+  /// Using a [CustomDateRangePickerTheme] gives more fine-grained control over the
   /// appearance of various components of the date range picker.
   ///
   /// ``` dart
@@ -496,14 +496,14 @@ class SfDateRangePicker extends StatelessWidget {
   final TextStyle? selectionTextStyle;
 
   /// The text style for the text in the selected range or ranges cell of
-  /// [SfDateRangePicker] month view.
+  /// [CustomDateRangePicker] month view.
   ///
   /// The style applies to the dates that falls between the
   /// [PickerDateRange.startDate] and [PickerDateRange.endDate].
   ///
   /// Defaults to null.
   ///
-  /// Using a [SfDateRangePickerTheme] gives more fine-grained control over the
+  /// Using a [CustomDateRangePickerTheme] gives more fine-grained control over the
   /// appearance of various components of the date range picker.
   ///
   /// _Note:_ This applies only when [DateRangePickerSelectionMode] set as
@@ -537,11 +537,11 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final TextStyle? rangeTextStyle;
 
-  /// The color which fills the [SfDateRangePicker] selection view.
+  /// The color which fills the [CustomDateRangePicker] selection view.
   ///
   /// Defaults to null.
   ///
-  /// Using a [SfDateRangePickerTheme] gives more fine-grained control over the
+  /// Using a [CustomDateRangePickerTheme] gives more fine-grained control over the
   /// appearance of various components of the date range picker.
   ///
   /// Note : It is applies only when the [DateRangePickerSelectionMode] set as
@@ -567,7 +567,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final Color? selectionColor;
 
-  /// The color which fills the [SfDateRangePicker] selection view of the range
+  /// The color which fills the [CustomDateRangePicker] selection view of the range
   /// start date.
   ///
   /// The color fills to the selection view of the date in
@@ -575,7 +575,7 @@ class SfDateRangePicker extends StatelessWidget {
   ///
   /// Defaults to null.
   ///
-  /// Using a [SfDateRangePickerTheme] gives more fine-grained control over the
+  /// Using a [CustomDateRangePickerTheme] gives more fine-grained control over the
   /// appearance of various components of the date range picker.
   ///
   /// Note : It is applies only when the [DateRangePickerSelectionMode] set as
@@ -600,7 +600,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final Color? startRangeSelectionColor;
 
-  /// The color which fills the [SfDateRangePicker] selection view for the range
+  /// The color which fills the [CustomDateRangePicker] selection view for the range
   /// of dates which falls between the [PickerDateRange.startDate] and
   /// [PickerDateRange.endDate].
   ///
@@ -609,7 +609,7 @@ class SfDateRangePicker extends StatelessWidget {
   ///
   /// Defaults to null.
   ///
-  /// Using a [SfDateRangePickerTheme] gives more fine-grained control over the
+  /// Using a [CustomDateRangePickerTheme] gives more fine-grained control over the
   /// appearance of various components of the date range picker.
   ///
   /// Note : It is applies only when the [DateRangePickerSelectionMode] set as
@@ -634,7 +634,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final Color? rangeSelectionColor;
 
-  /// The color which fills the [SfDateRangePicker] selection view of the range
+  /// The color which fills the [CustomDateRangePicker] selection view of the range
   /// end date.
   ///
   /// The color fills to the selection view of the date in
@@ -642,7 +642,7 @@ class SfDateRangePicker extends StatelessWidget {
   ///
   /// Defaults to null.
   ///
-  /// Using a [SfDateRangePickerTheme] gives more fine-grained control over the
+  /// Using a [CustomDateRangePickerTheme] gives more fine-grained control over the
   /// appearance of various components of the date range picker.
   ///
   /// Note : It is applies only when the [DateRangePickerSelectionMode] set as
@@ -668,7 +668,7 @@ class SfDateRangePicker extends StatelessWidget {
   final Color? endRangeSelectionColor;
 
   /// The settings have properties which allow to customize the month view of
-  /// the [SfDateRangePicker].
+  /// the [CustomDateRangePicker].
   ///
   /// Allows to customize the
   /// [DateRangePickerMonthViewSettings.numberOfWeeksInView],
@@ -725,7 +725,7 @@ class SfDateRangePicker extends StatelessWidget {
   final DateRangePickerMonthViewSettings monthViewSettings;
 
   /// The style have properties which allow to customize the year, decade and
-  /// century view of the [SfDateRangePicker].
+  /// century view of the [CustomDateRangePicker].
   ///
   /// Allows to customize the [DateRangePickerYearCellStyle.textStyle],
   /// [DateRangePickerYearCellStyle.todayTextStyle],
@@ -776,7 +776,7 @@ class SfDateRangePicker extends StatelessWidget {
   final DateRangePickerYearCellStyle yearCellStyle;
 
   /// The style have properties which allow to customize month cells of the
-  /// [SfDateRangePicker].
+  /// [CustomDateRangePicker].
   ///
   /// Allows to customize the  [DateRangePickerMonthCellStyle.textStyle],
   /// [DateRangePickerMonthCellStyle.todayTextStyle],
@@ -834,9 +834,9 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final DateRangePickerMonthCellStyle monthCellStyle;
 
-  /// The initial date to show on the [SfDateRangePicker]
+  /// The initial date to show on the [CustomDateRangePicker]
   ///
-  /// The [SfDateRangePicker] will display the dates based on the date set in
+  /// The [CustomDateRangePicker] will display the dates based on the date set in
   /// this property.
   ///
   /// Defaults to current date.
@@ -861,9 +861,9 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final DateTime initialDisplayDate;
 
-  /// The date to initially select on the [SfDateRangePicker].
+  /// The date to initially select on the [CustomDateRangePicker].
   ///
-  /// The [SfDateRangePicker] will select the date that set to this property.
+  /// The [CustomDateRangePicker] will select the date that set to this property.
   ///
   /// Defaults to null.
   ///
@@ -890,16 +890,16 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final DateTime? initialSelectedDate;
 
-  /// The minimum date as much as the [SfDateRangePicker] will navigate.
+  /// The minimum date as much as the [CustomDateRangePicker] will navigate.
   ///
-  /// The [SfDateRangePicker] widget will navigate as minimum as to the given
+  /// The [CustomDateRangePicker] widget will navigate as minimum as to the given
   /// date, and the dates before that date will be disabled for interaction and
   /// navigation to those dates were restricted.
   ///
   /// Defaults to `1st January of 1900`.
   ///
   /// _Note:_ If the [initialDisplayDate] or [controller.displayDate] property
-  /// set with the date prior to this date, the [SfDateRangePicker] will take
+  /// set with the date prior to this date, the [CustomDateRangePicker] will take
   /// this min date as a display date and render dates based on the date set to
   /// this property.
   ///
@@ -925,16 +925,16 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final DateTime minDate;
 
-  /// The maximum date as much as the [SfDateRangePicker] will navigate.
+  /// The maximum date as much as the [CustomDateRangePicker] will navigate.
   ///
-  /// The [SfDateRangePicker] widget will navigate as maximum as to the given
+  /// The [CustomDateRangePicker] widget will navigate as maximum as to the given
   /// date, and the dates after that date will be disabled for interaction and
   /// navigation to those dates were restricted.
   ///
   /// Defaults to `31st December of 2100`.
   ///
   /// _Note:_ If the [initialDisplayDate] or [controller.displayDate] property
-  /// set with the date after to this date, the [SfDateRangePicker] will take
+  /// set with the date after to this date, the [CustomDateRangePicker] will take
   /// this max date as a display date and render dates based on the date set to
   /// this property.
   ///
@@ -961,7 +961,7 @@ class SfDateRangePicker extends StatelessWidget {
   final DateTime maxDate;
 
   /// Allows to disable the dates falls before the today date in
-  /// [SfDateRangePicker].
+  /// [CustomDateRangePicker].
   ///
   /// If it is set as [false] the dates falls before the today date is disabled
   /// and selection interactions to that dates were restricted.
@@ -983,9 +983,9 @@ class SfDateRangePicker extends StatelessWidget {
   ///```
   final bool enablePastDates;
 
-  /// The collection of dates to initially select on the [SfDateRangePicker].
+  /// The collection of dates to initially select on the [CustomDateRangePicker].
   ///
-  /// If it is not [null] the [SfDateRangePicker] will select the dates that set
+  /// If it is not [null] the [CustomDateRangePicker] will select the dates that set
   /// to this property.
   ///
   /// Defaults to null.
@@ -1020,9 +1020,9 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final List<DateTime>? initialSelectedDates;
 
-  /// The date range to initially select on the [SfDateRangePicker].
+  /// The date range to initially select on the [CustomDateRangePicker].
   ///
-  /// If it is not [null] the [SfDateRangePicker] will select the range of dates
+  /// If it is not [null] the [CustomDateRangePicker] will select the range of dates
   /// that set to this property.
   ///
   /// Defaults to null.
@@ -1055,9 +1055,9 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final PickerDateRange? initialSelectedRange;
 
-  /// The date ranges to initially select on the [SfDateRangePicker].
+  /// The date ranges to initially select on the [CustomDateRangePicker].
   ///
-  /// If it is not [null] the [SfDateRangePicker] will select the range of dates
+  /// If it is not [null] the [CustomDateRangePicker] will select the range of dates
   /// that set to this property.
   ///
   /// Defaults to null.
@@ -1094,33 +1094,33 @@ class SfDateRangePicker extends StatelessWidget {
   final List<PickerDateRange>? initialSelectedRanges;
 
   /// An object that used for programmatic date navigation, date and range
-  /// selection and view switching in [SfDateRangePicker].
+  /// selection and view switching in [CustomDateRangePicker].
   ///
   /// A [DateRangePickerController] served for several purposes. It can be used
-  /// to selected dates and ranges programmatically on [SfDateRangePicker] by
+  /// to selected dates and ranges programmatically on [CustomDateRangePicker] by
   /// using the[controller.selectedDate], [controller.selectedDates],
   /// [controller.selectedRange], [controller.selectedRanges]. It can be used to
-  /// change the [SfDateRangePicker] view by using the [controller.view]
+  /// change the [CustomDateRangePicker] view by using the [controller.view]
   /// property. It can be used to navigate to specific date by using the
   /// [controller.displayDate] property.
   ///
   /// ## Listening to property changes:
   /// The [DateRangePickerController] is a listenable. It notifies it's
-  /// listeners whenever any of attached [SfDateRangePicker]`s selected date,
+  /// listeners whenever any of attached [CustomDateRangePicker]`s selected date,
   /// display date and view changed (i.e: selecting a different date, swiping to
   /// next/previous view and navigates to different view] in in
-  /// [SfDateRangePicker].
+  /// [CustomDateRangePicker].
   ///
   /// ## Navigates to different view:
-  /// The [SfDateRangePicker] visible view can be changed by using the
+  /// The [CustomDateRangePicker] visible view can be changed by using the
   /// [Controller.view] property, the property allow to change the view of
-  /// [SfDateRangePicker] programmatically on initial load and in run time.
+  /// [CustomDateRangePicker] programmatically on initial load and in run time.
   ///
   /// ## Programmatic selection:
-  /// In [SfDateRangePicker] selecting dates programmatically can be achieved by
+  /// In [CustomDateRangePicker] selecting dates programmatically can be achieved by
   /// using the [controller.selectedDate], [controller.selectedDates],
   /// [controller.selectedRange], [controller.selectedRanges] which allows to
-  /// select the dates or ranges programmatically on [SfDateRangePicker] on
+  /// select the dates or ranges programmatically on [CustomDateRangePicker] on
   /// initial load and in run time.
   ///
   /// See also: [DateRangePickerSelectionMode]
@@ -1128,7 +1128,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// Defaults to null.
   ///
   /// This example demonstrates how to use the [SfDateRangePickerController] for
-  /// [SfDateRangePicker].
+  /// [CustomDateRangePicker].
   ///
   /// ``` dart
   ///
@@ -1180,9 +1180,9 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final DateRangePickerController? controller;
 
-  /// Displays the navigation arrows on the header view of [SfDateRangePicker].
+  /// Displays the navigation arrows on the header view of [CustomDateRangePicker].
   ///
-  /// If this property set as [true] the header view of [SfDateRangePicker] will
+  /// If this property set as [true] the header view of [CustomDateRangePicker] will
   /// display the navigation arrows which used to navigate to the previous/next
   /// views through the navigation icon buttons.
   ///
@@ -1214,10 +1214,10 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final bool showNavigationArrow;
 
-  /// The direction that [SfDateRangePicker] is navigating in.
+  /// The direction that [CustomDateRangePicker] is navigating in.
   ///
   /// If it this property set as [DateRangePickerNavigationDirection.vertical]
-  /// the [SfDateRangePicker] will navigate to the previous/next views in the
+  /// the [CustomDateRangePicker] will navigate to the previous/next views in the
   /// vertical direction instead of the horizontal direction.
   ///
   /// Defaults to `DateRangePickerNavigationDirection.horizontal`.
@@ -1240,7 +1240,7 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final DateRangePickerNavigationDirection navigationDirection;
 
-  /// Defines the shape for the selection view in [SfDateRangePicker].
+  /// Defines the shape for the selection view in [CustomDateRangePicker].
   ///
   /// If this property set as [DateRangePickerSelectionShape.rectangle] the
   /// widget will render the date selection in the rectangle shape in month
@@ -1274,9 +1274,9 @@ class SfDateRangePicker extends StatelessWidget {
   /// ```
   final DateRangePickerSelectionShape selectionShape;
 
-  /// Allows to change the month text format in [SfDateRangePicker].
+  /// Allows to change the month text format in [CustomDateRangePicker].
   ///
-  /// The [SfDateRangePicker] will render the month format in the month view
+  /// The [CustomDateRangePicker] will render the month format in the month view
   /// header with expanded month text format and the year view cells with the
   /// short month text format by default.
   ///
@@ -1304,7 +1304,7 @@ class SfDateRangePicker extends StatelessWidget {
   final String? monthFormat;
 
   /// Defines the view navigation mode based on its [navigationDirection]
-  /// for [SfDateRangePicker].
+  /// for [CustomDateRangePicker].
   ///
   /// Defaults to [DateRangePickerNavigationMode.snap]
   ///
@@ -1525,7 +1525,7 @@ class SfDateRangePicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _SfDateRangePicker(
+    return _CustomDateRangePicker(
       key: key,
       view: view,
       selectionMode: selectionMode,
@@ -1574,8 +1574,8 @@ class SfDateRangePicker extends StatelessWidget {
 }
 
 @immutable
-class _SfDateRangePicker extends StatefulWidget {
-  const _SfDateRangePicker({
+class _CustomDateRangePicker extends StatefulWidget {
+  const _CustomDateRangePicker({
     Key? key,
     required this.view,
     required this.selectionMode,
@@ -1706,10 +1706,10 @@ class _SfDateRangePicker extends StatefulWidget {
   final Function(Object)? onSubmit;
 
   @override
-  _SfDateRangePickerState createState() => _SfDateRangePickerState();
+  _CustomDateRangePickerState createState() => _CustomDateRangePickerState();
 }
 
-class _SfDateRangePickerState extends State<_SfDateRangePicker> {
+class _CustomDateRangePickerState extends State<_CustomDateRangePicker> {
   late List<dynamic> _currentViewVisibleDates;
   dynamic _currentDate, _selectedDate;
   double? _minWidth, _minHeight;
@@ -1725,7 +1725,7 @@ class _SfDateRangePickerState extends State<_SfDateRangePicker> {
   late bool _isRtl;
   late dynamic _controller;
   late Locale _locale;
-  late SfDateRangePickerThemeData _datePickerTheme;
+  late CustomDateRangePickerThemeData _datePickerTheme;
 
   /// Holds the date collection after the display date.
   // ignore: always_specify_types
@@ -1798,8 +1798,8 @@ class _SfDateRangePickerState extends State<_SfDateRangePicker> {
     // height widget
     _minPickerHeight = 300;
     _locale = Localizations.localeOf(context);
-    final SfDateRangePickerThemeData pickerTheme =
-        SfDateRangePickerTheme.of(context);
+    final CustomDateRangePickerThemeData pickerTheme =
+        CustomDateRangePickerTheme.of(context);
     final ThemeData themeData = Theme.of(context);
     _datePickerTheme = pickerTheme.copyWith(
         todayTextStyle: pickerTheme.todayTextStyle.color == null
@@ -1827,7 +1827,7 @@ class _SfDateRangePickerState extends State<_SfDateRangePicker> {
   }
 
   @override
-  void didUpdateWidget(_SfDateRangePicker oldWidget) {
+  void didUpdateWidget(_CustomDateRangePicker oldWidget) {
     if (oldWidget.controller != widget.controller) {
       oldWidget.controller
           ?.removePropertyChangedListener(_pickerValueChangedListener);
@@ -2230,7 +2230,7 @@ class _SfDateRangePickerState extends State<_SfDateRangePicker> {
     }
   }
 
-  dynamic _updateCurrentDate(_SfDateRangePicker oldWidget) {
+  dynamic _updateCurrentDate(_CustomDateRangePicker oldWidget) {
     if (oldWidget.controller == widget.controller &&
         widget.controller != null &&
         oldWidget.controller?.view == DateRangePickerView.month &&
@@ -3482,7 +3482,7 @@ class _PickerScrollView extends StatefulWidget {
       : super(key: key);
 
   /// Holds the picker instance to access the picker details.
-  final _SfDateRangePicker picker;
+  final _CustomDateRangePicker picker;
 
   /// Holds the picker scroll view width.
   final double width;
@@ -3503,12 +3503,12 @@ class _PickerScrollView extends StatefulWidget {
   final dynamic controller;
 
   /// Holds the theme data for date range picker.
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
 
   /// Holds the picker locale.
   final Locale locale;
 
-  /// Defines the text scale factor of [SfDateRangePicker].
+  /// Defines the text scale factor of [CustomDateRangePicker].
   final double textScaleFactor;
 
   @override
@@ -5717,31 +5717,31 @@ class _PickerHeaderView extends StatefulWidget {
       {Key? key})
       : super(key: key);
 
-  /// Defines the text scale factor of [SfDateRangePicker].
+  /// Defines the text scale factor of [CustomDateRangePicker].
   final double textScaleFactor;
 
-  /// Defines the selection mode of [SfDateRangePicker].
+  /// Defines the selection mode of [CustomDateRangePicker].
   final DateRangePickerSelectionMode selectionMode;
 
-  /// Defines the header style of [SfDateRangePicker].
+  /// Defines the header style of [CustomDateRangePicker].
   final DateRangePickerHeaderStyle headerStyle;
 
   /// Holds the current picker view of picker.
   final DateRangePickerView view;
 
-  /// Defines the number of week in [SfDateRangePicker] month view.
+  /// Defines the number of week in [CustomDateRangePicker] month view.
   final int numberOfWeeksInView;
 
   /// Decides the navigation arrow will shown or not.
   final bool showNavigationArrow;
 
-  /// Defines the navigation direction of [SfDateRangePicker].
+  /// Defines the navigation direction of [CustomDateRangePicker].
   final DateRangePickerNavigationDirection navigationDirection;
 
-  /// The minimum date as much as the [SfDateRangePicker] will navigate.
+  /// The minimum date as much as the [CustomDateRangePicker] will navigate.
   final dynamic minDate;
 
-  /// The maximum date as much as the [SfDateRangePicker] will navigate.
+  /// The maximum date as much as the [CustomDateRangePicker] will navigate.
   final dynamic maxDate;
 
   /// Defines the month format used on header view text.
@@ -5756,7 +5756,7 @@ class _PickerHeaderView extends StatefulWidget {
   final bool allowViewNavigation;
 
   /// Holds the theme data for date range picker.
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
 
   /// Defines the locale details of date range picker.
   final Locale locale;
@@ -6092,7 +6092,7 @@ class _PickerView extends StatefulWidget {
   final List<dynamic> visibleDates;
 
   /// Holds the picker instance to access the picker details.
-  final _SfDateRangePicker picker;
+  final _CustomDateRangePicker picker;
 
   final bool enableMultiView;
 
@@ -6112,7 +6112,7 @@ class _PickerView extends StatefulWidget {
   final UpdatePickerState updatePickerStateDetails;
 
   /// Holds the theme data for date range picker.
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
 
   /// Used to identify the widget direction is RTL.
   final bool isRtl;
@@ -6120,7 +6120,7 @@ class _PickerView extends StatefulWidget {
   /// Holds the node and used to request the focus.
   final FocusNode? focusNode;
 
-  /// Defines the text scale factor of [SfDateRangePicker].
+  /// Defines the text scale factor of [CustomDateRangePicker].
   final double textScaleFactor;
 
   @override
@@ -6228,7 +6228,7 @@ class _PickerViewState extends State<_PickerView>
 
   // Returns the month view  as a child for the picker view.
   Widget _addMonthView(
-      Locale locale, SfDateRangePickerThemeData datePickerTheme) {
+      Locale locale, CustomDateRangePickerThemeData datePickerTheme) {
     final DateRangePickerView pickerView =
         DateRangePickerHelper.getPickerView(widget.controller.view);
     double viewHeaderHeight =
@@ -6258,8 +6258,11 @@ class _PickerViewState extends State<_PickerView>
     );
   }
 
-  MonthView _getMonthView(Locale locale,
-      SfDateRangePickerThemeData datePickerTheme, double width, double height) {
+  MonthView _getMonthView(
+      Locale locale,
+      CustomDateRangePickerThemeData datePickerTheme,
+      double width,
+      double height) {
     final int rowCount = DateRangePickerHelper.getNumberOfWeeksInView(
         widget.picker.monthViewSettings, false);
     return MonthView(
@@ -6302,7 +6305,7 @@ class _PickerViewState extends State<_PickerView>
   }
 
   Widget _getViewHeader(double viewHeaderHeight, Locale locale,
-      SfDateRangePickerThemeData datePickerTheme) {
+      CustomDateRangePickerThemeData datePickerTheme) {
     if (viewHeaderHeight == 0) {
       return Positioned(
           left: 0,
@@ -8144,7 +8147,7 @@ class _PickerHeaderPainter extends CustomPainter {
   final DateRangePickerHeaderStyle headerStyle;
   final DateRangePickerView view;
   final int numberOfWeeksInView;
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
   final bool isRtl;
   final String? monthFormat;
   final bool hovering;
@@ -8331,15 +8334,15 @@ class _PickerViewHeaderPainter extends CustomPainter {
   final double multiViewSpacing;
 
   /// Holds the theme data for date range picker.
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
 
-  /// Specifies the picker type for [SfDateRangePicker].
+  /// Specifies the picker type for [CustomDateRangePicker].
   final bool isHijri;
 
-  /// Defines the text scale factor of [SfDateRangePicker].
+  /// Defines the text scale factor of [CustomDateRangePicker].
   final double textScaleFactor;
 
-  /// Defines the navigation direction for [SfDateRangePicker].
+  /// Defines the navigation direction for [CustomDateRangePicker].
   final DateRangePickerNavigationDirection navigationDirection;
   final TextPainter _textPainter = TextPainter(
       textDirection: TextDirection.ltr,
@@ -8348,7 +8351,7 @@ class _PickerViewHeaderPainter extends CustomPainter {
 
   final ValueNotifier<List<dynamic>>? viewHeaderVisibleDates;
 
-  /// Defines the week number of year for [SfDateRangePicker].
+  /// Defines the week number of year for [CustomDateRangePicker].
   final bool showWeekNumber;
 
   /// Defines the current platform is mobile platform or not.
@@ -8567,7 +8570,7 @@ typedef DateRangePickerSelectionChangedCallback = void Function(
 /// The visible date range and the visible view which visible on view when the
 /// view changes available in the [DateRangePickerViewChangedArgs].
 ///
-/// Used by [SfDateRangePicker.onViewChanged].
+/// Used by [CustomDateRangePicker.onViewChanged].
 typedef DateRangePickerViewChangedCallback = void Function(
     DateRangePickerViewChangedArgs dateRangePickerViewChangedArgs);
 
@@ -8575,12 +8578,12 @@ typedef DateRangePickerViewChangedCallback = void Function(
 typedef UpdatePickerState = void Function(
     PickerStateArgs updatePickerStateDetails);
 
-void _raiseSelectionChangedCallback(_SfDateRangePicker picker,
+void _raiseSelectionChangedCallback(_CustomDateRangePicker picker,
     {dynamic value}) {
   picker.onSelectionChanged?.call(DateRangePickerSelectionChangedArgs(value));
 }
 
-void _raisePickerViewChangedCallback(_SfDateRangePicker picker,
+void _raisePickerViewChangedCallback(_CustomDateRangePicker picker,
     {dynamic visibleDateRange, dynamic view}) {
   if (picker.onViewChanged == null) {
     return;
@@ -8792,7 +8795,7 @@ Size _getTextWidgetWidth(
   return Size(textWidth + widthPadding, textHeight + heightPadding);
 }
 
-bool _isMultiViewEnabled(_SfDateRangePicker picker) {
+bool _isMultiViewEnabled(_CustomDateRangePicker picker) {
   return picker.enableMultiView &&
       picker.navigationMode != DateRangePickerNavigationMode.scroll;
 }

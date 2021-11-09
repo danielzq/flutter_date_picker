@@ -70,12 +70,12 @@ class MonthView extends StatefulWidget {
   final Color? todayHighlightColor;
 
   /// Holds the theme data for date range picker.
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
 
-  /// The minimum date as much as the [SfDateRangePicker] will navigate.
+  /// The minimum date as much as the [CustomDateRangePicker] will navigate.
   final dynamic minDate;
 
-  /// The maximum date as much as the [SfDateRangePicker] will navigate.
+  /// The maximum date as much as the [CustomDateRangePicker] will navigate.
   final dynamic maxDate;
 
   /// Decides to enable past dates or not.
@@ -84,13 +84,13 @@ class MonthView extends StatefulWidget {
   /// Decides the trailing and leading of month view will visible or not.
   final bool showLeadingAndTailingDates;
 
-  /// Holds the blackout dates of the [SfDateRangePicker].
+  /// Holds the blackout dates of the [CustomDateRangePicker].
   final List<dynamic>? blackoutDates;
 
-  /// Holds the special dates of the [SfDateRangePicker].
+  /// Holds the special dates of the [CustomDateRangePicker].
   final List<dynamic>? specialDates;
 
-  /// Holds the list of week day index of the [SfDateRangePicker].
+  /// Holds the list of week day index of the [CustomDateRangePicker].
   final List<int> weekendDays;
 
   /// Decides the month cell highlight and selection shape.
@@ -129,10 +129,10 @@ class MonthView extends StatefulWidget {
   /// Defines the background color for selected range in between dates cell.
   final Color? rangeSelectionColor;
 
-  /// Defines the text scale factor of [SfDateRangePicker].
+  /// Defines the text scale factor of [CustomDateRangePicker].
   final double textScaleFactor;
 
-  /// Defines the selection mode of the [SfDateRangePicker].
+  /// Defines the selection mode of the [CustomDateRangePicker].
   final DateRangePickerSelectionMode selectionMode;
 
   /// Defines the height of the month view.
@@ -147,16 +147,16 @@ class MonthView extends StatefulWidget {
   /// Used to build the widget that replaces the month cells in month view.
   final dynamic cellBuilder;
 
-  /// Defines the navigation direction for [SfDateRangePicker].
+  /// Defines the navigation direction for [CustomDateRangePicker].
   final DateRangePickerNavigationDirection navigationDirection;
 
-  /// Defines the week number of the year for [SfDateRangePicker].
+  /// Defines the week number of the year for [CustomDateRangePicker].
   final bool showWeekNumber;
 
   /// Defines the current platform is mobile platform or not.
   final bool isMobilePlatform;
 
-  /// Defines the week number style for [SfDateRangePicker].
+  /// Defines the week number style for [CustomDateRangePicker].
   final DateRangePickerWeekNumberStyle weekNumberStyle;
 
   @override
@@ -620,7 +620,7 @@ class _MonthViewSingleSelectionRenderWidget
 
   final Color? todayHighlightColor;
 
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
 
   final dynamic minDate;
 
@@ -803,7 +803,7 @@ class _MonthViewMultiSelectionRenderWidget
 
   final Color? todayHighlightColor;
 
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
 
   final dynamic minDate;
 
@@ -987,7 +987,7 @@ class _MonthViewRangeSelectionRenderWidget
 
   final Color? todayHighlightColor;
 
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
 
   final dynamic minDate;
 
@@ -1169,7 +1169,7 @@ class _MonthViewExtendableRangeSelectionRenderWidget
 
   final Color? todayHighlightColor;
 
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
 
   final dynamic minDate;
 
@@ -1355,7 +1355,7 @@ class _MonthViewMultiRangeSelectionRenderWidget
 
   final Color? todayHighlightColor;
 
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
 
   final dynamic minDate;
 
@@ -1667,11 +1667,11 @@ abstract class _IMonthView extends RenderBox
   }
 
   /// Holds the theme data for date range picker.
-  SfDateRangePickerThemeData _datePickerTheme;
+  CustomDateRangePickerThemeData _datePickerTheme;
 
-  SfDateRangePickerThemeData get datePickerTheme => _datePickerTheme;
+  CustomDateRangePickerThemeData get datePickerTheme => _datePickerTheme;
 
-  set datePickerTheme(SfDateRangePickerThemeData value) {
+  set datePickerTheme(CustomDateRangePickerThemeData value) {
     if (_datePickerTheme == value) {
       return;
     }
@@ -1684,7 +1684,7 @@ abstract class _IMonthView extends RenderBox
     markNeedsPaint();
   }
 
-  /// The minimum date as much as the [SfDateRangePicker] will navigate.
+  /// The minimum date as much as the [CustomDateRangePicker] will navigate.
   dynamic _minDate;
 
   dynamic get minDate => _minDate;
@@ -1702,7 +1702,7 @@ abstract class _IMonthView extends RenderBox
     }
   }
 
-  /// The maximum date as much as the [SfDateRangePicker] will navigate.
+  /// The maximum date as much as the [CustomDateRangePicker] will navigate.
   dynamic _maxDate;
 
   dynamic get maxDate => _maxDate;
@@ -1756,7 +1756,7 @@ abstract class _IMonthView extends RenderBox
     }
   }
 
-  /// Holds the blackout dates of the [SfDateRangePicker].
+  /// Holds the blackout dates of the [CustomDateRangePicker].
   List<dynamic>? _blackoutDates;
 
   List<dynamic>? get blackoutDates => _blackoutDates;
@@ -1774,7 +1774,7 @@ abstract class _IMonthView extends RenderBox
     }
   }
 
-  /// Holds the special dates of the [SfDateRangePicker].
+  /// Holds the special dates of the [CustomDateRangePicker].
   List<dynamic>? _specialDates;
 
   List<dynamic>? get specialDates => _specialDates;
@@ -1792,7 +1792,7 @@ abstract class _IMonthView extends RenderBox
     }
   }
 
-  /// Holds the list of week day index of the [SfDateRangePicker].
+  /// Holds the list of week day index of the [CustomDateRangePicker].
   List<int> _weekendDays;
 
   List<int> get weekendDays => _weekendDays;
@@ -2001,7 +2001,7 @@ abstract class _IMonthView extends RenderBox
     markNeedsPaint();
   }
 
-  /// Defines the text scale factor of [SfDateRangePicker].
+  /// Defines the text scale factor of [CustomDateRangePicker].
   double _textScaleFactor;
 
   double get textScaleFactor => _textScaleFactor;
@@ -2130,7 +2130,7 @@ abstract class _IMonthView extends RenderBox
   }
 
   /// Update the selection details(date, dates, range, ranges) based on
-  /// [SfDateRangePicker] selection mode.
+  /// [CustomDateRangePicker] selection mode.
   void updateSelection(PickerStateArgs details);
 
   /// Return the list of selected index based on it selection mode
@@ -2361,7 +2361,7 @@ class _MonthViewSingleSelectionRenderObject extends _IMonthView {
       Color? startRangeSelectionColor,
       Color? endRangeSelectionColor,
       Color? rangeSelectionColor,
-      SfDateRangePickerThemeData datePickerTheme,
+      CustomDateRangePickerThemeData datePickerTheme,
       bool isRtl,
       Color? todayHighlightColor,
       dynamic minDate,
@@ -2531,7 +2531,7 @@ class _MonthViewMultiSelectionRenderObject extends _IMonthView {
       Color? startRangeSelectionColor,
       Color? endRangeSelectionColor,
       Color? rangeSelectionColor,
-      SfDateRangePickerThemeData datePickerTheme,
+      CustomDateRangePickerThemeData datePickerTheme,
       bool isRtl,
       Color? todayHighlightColor,
       dynamic minDate,
@@ -2706,7 +2706,7 @@ class _MonthViewRangeSelectionRenderObject extends _IMonthView {
       Color? startRangeSelectionColor,
       Color? endRangeSelectionColor,
       Color? rangeSelectionColor,
-      SfDateRangePickerThemeData datePickerTheme,
+      CustomDateRangePickerThemeData datePickerTheme,
       bool isRtl,
       Color? todayHighlightColor,
       dynamic minDate,
@@ -2967,7 +2967,7 @@ class _MonthViewExtendableRangeSelectionRenderObject extends _IMonthView {
       Color? startRangeSelectionColor,
       Color? endRangeSelectionColor,
       Color? rangeSelectionColor,
-      SfDateRangePickerThemeData datePickerTheme,
+      CustomDateRangePickerThemeData datePickerTheme,
       bool isRtl,
       Color? todayHighlightColor,
       dynamic minDate,
@@ -3230,7 +3230,7 @@ class _MonthViewMultiRangeSelectionRenderObject extends _IMonthView {
       Color? startRangeSelectionColor,
       Color? endRangeSelectionColor,
       Color? rangeSelectionColor,
-      SfDateRangePickerThemeData datePickerTheme,
+      CustomDateRangePickerThemeData datePickerTheme,
       bool isRtl,
       Color? todayHighlightColor,
       dynamic minDate,

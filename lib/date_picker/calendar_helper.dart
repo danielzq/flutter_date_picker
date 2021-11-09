@@ -47,10 +47,10 @@ dynamic subtractDuration(dynamic date, Duration duration) {
 
 /// Returns the previous month start date for the given date.
 dynamic getPreviousMonthDate(dynamic date) {
-  if (date is HijriDateTime) {
+  if (date is CustomDateTime) {
     return date.month == 1
-        ? HijriDateTime(date.year - 1, 12, 01)
-        : HijriDateTime(date.year, date.month - 1, 1);
+        ? CustomDateTime(date.year - 1, 12, 01)
+        : CustomDateTime(date.year, date.month - 1, 1);
   }
   return date.month == 1
       ? DateTime(date.year - 1, 12, 1)
@@ -59,10 +59,10 @@ dynamic getPreviousMonthDate(dynamic date) {
 
 /// Returns the next month start date for the given date..
 dynamic getNextMonthDate(dynamic date) {
-  if (date is HijriDateTime) {
+  if (date is CustomDateTime) {
     return date.month == 12
-        ? HijriDateTime(date.year + 1, 01, 01)
-        : HijriDateTime(date.year, date.month + 1, 1);
+        ? CustomDateTime(date.year + 1, 01, 01)
+        : CustomDateTime(date.year, date.month + 1, 1);
   }
   return date.month == 12
       ? DateTime(date.year + 1, 1, 1)
@@ -94,7 +94,7 @@ bool isSameDate(dynamic date1, dynamic date2) {
     return false;
   }
 
-  if (date1 is HijriDateTime && date2 is HijriDateTime) {
+  if (date1 is CustomDateTime && date2 is CustomDateTime) {
     return date1.month == date2.month &&
         date1.year == date2.year &&
         date1.day == date2.day &&
@@ -141,8 +141,8 @@ List getVisibleDates(dynamic date, List<int>? nonWorkingDays,
     int firstDayOfWeek, int visibleDatesCount) {
   // ignore: always_specify_types
   List datesCollection;
-  if (date is HijriDateTime) {
-    datesCollection = <HijriDateTime>[];
+  if (date is CustomDateTime) {
+    datesCollection = <CustomDateTime>[];
   } else {
     datesCollection = <DateTime>[];
   }
@@ -165,7 +165,7 @@ List getVisibleDates(dynamic date, List<int>? nonWorkingDays,
 
 /// Return date value without hour and minutes consideration.
 dynamic addDays(dynamic date, int days) {
-  if (date is HijriDateTime) {
+  if (date is CustomDateTime) {
     return date.add(Duration(days: days));
   }
 
@@ -183,8 +183,8 @@ dynamic getFirstDayOfWeekDate(
   const int numberOfWeekDays = 7;
   dynamic currentDate = date;
   if (visibleDatesCount == 42) {
-    if (currentDate is HijriDateTime) {
-      currentDate = HijriDateTime(currentDate.year, currentDate.month, 1);
+    if (currentDate is CustomDateTime) {
+      currentDate = CustomDateTime(currentDate.year, currentDate.month, 1);
     } else {
       currentDate = DateTime(currentDate.year, currentDate.month, 1);
     }

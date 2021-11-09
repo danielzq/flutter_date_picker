@@ -403,7 +403,7 @@ class DateRangePickerHelper {
     // ignore: always_specify_types
     List datesCollection;
     if (isHijri) {
-      datesCollection = <HijriDateTime>[];
+      datesCollection = <CustomDateTime>[];
     } else {
       datesCollection = <DateTime>[];
     }
@@ -519,15 +519,15 @@ class DateRangePickerHelper {
     }
 
     switch (view) {
-      case HijriDatePickerView.month:
+      case CustomDatePickerEnum.month:
         {
           return DateRangePickerView.month;
         }
-      case HijriDatePickerView.year:
+      case CustomDatePickerEnum.year:
         {
           return DateRangePickerView.year;
         }
-      case HijriDatePickerView.decade:
+      case CustomDatePickerEnum.decade:
         {
           return DateRangePickerView.decade;
         }
@@ -536,32 +536,32 @@ class DateRangePickerHelper {
     return DateRangePickerView.month;
   }
 
-  /// Returns teh [HijriDatePickerView] value based on the given value.
-  static HijriDatePickerView getHijriPickerView(dynamic view) {
-    if (view is HijriDatePickerView) {
+  /// Returns teh [CustomDatePickerEnum] value based on the given value.
+  static CustomDatePickerEnum getHijriPickerView(dynamic view) {
+    if (view is CustomDatePickerEnum) {
       return view;
     }
 
     switch (view) {
       case DateRangePickerView.month:
         {
-          return HijriDatePickerView.month;
+          return CustomDatePickerEnum.month;
         }
       case DateRangePickerView.year:
         {
-          return HijriDatePickerView.year;
+          return CustomDatePickerEnum.year;
         }
       case DateRangePickerView.decade:
         {
-          return HijriDatePickerView.decade;
+          return CustomDatePickerEnum.decade;
         }
       case DateRangePickerView.century:
         {
-          return HijriDatePickerView.decade;
+          return CustomDatePickerEnum.decade;
         }
     }
 
-    return HijriDatePickerView.month;
+    return CustomDatePickerEnum.month;
   }
 
   /// Returns the number of weeks in view for the picker.
@@ -586,7 +586,7 @@ class DateRangePickerHelper {
   /// Returns the today date value.
   static dynamic getToday(bool isHijri) {
     if (isHijri) {
-      return HijriDateTime.now();
+      return CustomDateTime.now();
     }
 
     return DateTime.now();
@@ -595,7 +595,7 @@ class DateRangePickerHelper {
   /// Returns the required date with the given parameter values.
   static dynamic getDate(int year, int month, int day, bool isHijri) {
     if (isHijri) {
-      return HijriDateTime(year, month, day);
+      return CustomDateTime(year, month, day);
     }
 
     return DateTime(year, month, day);
@@ -763,7 +763,7 @@ class DateRangePickerHelper {
   /// Returns week number for the given date.
   static int getWeekNumberOfYear(dynamic date, bool isHijri) {
     final dynamic yearEndDate = isHijri
-        ? HijriDateTime(date.year - 1, 12, 31)
+        ? CustomDateTime(date.year - 1, 12, 31)
         : DateTime(date.year - 1, 12, 31);
     final int dayOfYear = date.difference(yearEndDate).inDays as int;
     int weekNumber = (dayOfYear - date.weekday + 10) ~/ 7;
@@ -885,7 +885,7 @@ class PickerStateArgs {
   }
 }
 
-enum HijriDatePickerView {
+enum CustomDatePickerEnum {
   /// - HijriDatePickerView.month, Displays the month view.
   month,
 

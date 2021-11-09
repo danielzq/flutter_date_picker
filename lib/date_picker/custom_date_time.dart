@@ -1754,9 +1754,9 @@ const List<int> _kDateCollection = <int>[
 ///
 /// ```
 @immutable
-class HijriDateTime {
+class CustomDateTime {
   /// Creates a instance for HijriDateTime instance with given data.
-  HijriDateTime(this.year, this.month, this.day)
+  CustomDateTime(this.year, this.month, this.day)
       : _date =
             convertToGregorianDate(null, year: year, month: month, day: day);
 
@@ -1767,7 +1767,7 @@ class HijriDateTime {
   /// final HijriDateTime currentDate = HijriDateTime.now();
   ///
   /// ```
-  static HijriDateTime now() {
+  static CustomDateTime now() {
     final DateTime today = DateTime.now();
     return convertToHijriDate(today);
   }
@@ -1783,7 +1783,7 @@ class HijriDateTime {
   ///                                                           DateTime.now));
   ///
   /// ```
-  static HijriDateTime fromDateTime(DateTime date) {
+  static CustomDateTime fromDateTime(DateTime date) {
     return convertToHijriDate(date);
   }
 
@@ -1818,7 +1818,7 @@ class HijriDateTime {
   ///
   /// The comparison is independent of whether the time is in UTC or in the
   /// local time zone.
-  bool isAfter(HijriDateTime other) {
+  bool isAfter(CustomDateTime other) {
     return _date.millisecondsSinceEpoch > other._date.millisecondsSinceEpoch;
   }
 
@@ -1826,7 +1826,7 @@ class HijriDateTime {
   ///
   /// The comparison is independent of whether the time is in UTC or in the
   /// local time zone.
-  bool isBefore(HijriDateTime other) {
+  bool isBefore(CustomDateTime other) {
     return _date.millisecondsSinceEpoch < other._date.millisecondsSinceEpoch;
   }
 
@@ -1834,7 +1834,7 @@ class HijriDateTime {
   ///
   /// The comparison is independent of whether the time is in UTC or in the
   /// local time zone.
-  bool isAtSameMomentAs(HijriDateTime other) {
+  bool isAtSameMomentAs(CustomDateTime other) {
     return _date.millisecondsSinceEpoch == other._date.millisecondsSinceEpoch;
   }
 
@@ -1842,7 +1842,7 @@ class HijriDateTime {
   /// [this].
   ///
   /// The returned [Duration] will be negative if [other] occurs after [this].
-  Duration difference(HijriDateTime other) {
+  Duration difference(CustomDateTime other) {
     return _date.difference(other._date);
   }
 
@@ -1852,7 +1852,7 @@ class HijriDateTime {
   /// Returns a negative value if this HijriDateTime [isBefore] [other]. It
   /// returns 0 if it [isAtSameMomentAs] [other], and returns a positive value
   /// otherwise (when this [isAfter] [other]).
-  int compareTo(HijriDateTime other) {
+  int compareTo(CustomDateTime other) {
     return _date.compareTo(other._date);
   }
 
@@ -1868,16 +1868,16 @@ class HijriDateTime {
     return '0$n';
   }
 
-  /// Returns a new [HijriDateTime] instance with [duration] added to [this].
-  HijriDateTime add(Duration duration) {
+  /// Returns a new [CustomDateTime] instance with [duration] added to [this].
+  CustomDateTime add(Duration duration) {
     return _add(duration);
   }
 
   /// returns the previous date from the given value.
-  HijriDateTime _getPreviousDate(HijriDateTime date, int day) {
+  CustomDateTime _getPreviousDate(CustomDateTime date, int day) {
     if (day <= 0) {
       // ignore: avoid_as
-      date = getPreviousMonthDate(date) as HijriDateTime;
+      date = getPreviousMonthDate(date) as CustomDateTime;
       final int? monthLength = date.getNumberOfDatesInMonth();
 
       /// Return same date when dates count in month not specified.
@@ -1889,15 +1889,15 @@ class HijriDateTime {
       return _getPreviousDate(date, day);
     }
 
-    return HijriDateTime(date.year, date.month, day);
+    return CustomDateTime(date.year, date.month, day);
   }
 
   /// Returns the next possible date from the given value.
-  HijriDateTime _getNextDate(int? monthLength, HijriDateTime date, int day) {
+  CustomDateTime _getNextDate(int? monthLength, CustomDateTime date, int day) {
     if (monthLength != null && day > monthLength) {
       day -= monthLength;
       // ignore: avoid_as
-      date = getNextMonthDate(date) as HijriDateTime;
+      date = getNextMonthDate(date) as CustomDateTime;
       monthLength = date.getNumberOfDatesInMonth();
 
       /// Return same date when dates count in month not specified.
@@ -1908,11 +1908,11 @@ class HijriDateTime {
       return _getNextDate(monthLength, date, day);
     }
 
-    return HijriDateTime(date.year, date.month, day);
+    return CustomDateTime(date.year, date.month, day);
   }
 
-  /// Returns new [HijriDateTime] instance by subtracting given [Duration].
-  HijriDateTime _add(Duration duration) {
+  /// Returns new [CustomDateTime] instance by subtracting given [Duration].
+  CustomDateTime _add(Duration duration) {
     final int? lengthOfMonth = getNumberOfDatesInMonth();
 
     /// Return same date when dates count in month not specified.
@@ -1921,7 +1921,7 @@ class HijriDateTime {
     }
 
     int? newDay;
-    HijriDateTime? addedDate;
+    CustomDateTime? addedDate;
     newDay = duration.inDays + day;
     if (newDay > lengthOfMonth) {
       addedDate = _getNextDate(lengthOfMonth, this, newDay);
@@ -1933,12 +1933,12 @@ class HijriDateTime {
       return addedDate;
     }
 
-    return HijriDateTime(year, month, newDay);
+    return CustomDateTime(year, month, newDay);
   }
 
-  /// Returns a new [HijriDateTime] instance with [duration] subtracted to
+  /// Returns a new [CustomDateTime] instance with [duration] subtracted to
   /// [this].
-  HijriDateTime subtract(Duration duration) {
+  CustomDateTime subtract(Duration duration) {
     return _add(-duration);
   }
 
@@ -1967,7 +1967,7 @@ class HijriDateTime {
     }
 
     // ignore: avoid_as, test_types_in_equals
-    final HijriDateTime otherStyle = other as HijriDateTime;
+    final CustomDateTime otherStyle = other as CustomDateTime;
     return otherStyle.month == month &&
         otherStyle.year == year &&
         otherStyle.day == day;
@@ -1980,7 +1980,7 @@ class HijriDateTime {
 }
 
 /// Converts and retusn the hijri date for the given gregorian date.
-HijriDateTime convertToHijriDate(DateTime date) {
+CustomDateTime convertToHijriDate(DateTime date) {
   int day = date.day;
   int month = date.month;
   int year = date.year;
@@ -2044,11 +2044,11 @@ HijriDateTime convertToHijriDate(DateTime date) {
     hYear = iy;
   }
 
-  return HijriDateTime(hYear, hMonth, hDate);
+  return CustomDateTime(hYear, hMonth, hDate);
 }
 
 /// Converts and returns the gregorian date from the given hijri date values.
-DateTime convertToGregorianDate(HijriDateTime? date,
+DateTime convertToGregorianDate(CustomDateTime? date,
     {int year = 0, int month = 0, int day = 0}) {
   if (date != null) {
     return date._date;

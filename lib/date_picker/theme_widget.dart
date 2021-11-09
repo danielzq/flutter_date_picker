@@ -5,185 +5,113 @@ import 'daterangepicker_theme.dart';
 
 /// Applies a theme to descendant Syncfusion widgets.
 ///
-/// If [SfTheme] is not specified, then based on the
+/// If [CustomTheme] is not specified, then based on the
 /// [Theme.of(context).brightness], brightness for
 /// Syncfusion widgets will be applied.
 ///
-/// ```dart
-/// Widget build(BuildContext context) {
-///   return Scaffold(
-///     body: Center(
-///       child: SfTheme(
-///         data: SfThemeData(
-///           chartThemeData: SfChartThemeData(
-///             backgroundColor: Colors.grey,
-///             brightness: Brightness.dark
-///           )
-///         ),
-///         child: SfCartesianChart(
-///         )
-///       ),
-///     )
-///   );
-/// }
-/// ```
-class SfTheme extends StatelessWidget {
-  /// Creating an argument constructor of SfTheme class.
-  const SfTheme({
+class CustomTheme extends StatelessWidget {
+  /// Creating an argument constructor of CustomTheme class.
+  const CustomTheme({
     Key? key,
     this.data,
     required this.child,
   }) : super(key: key);
 
   /// Specifies a widget that can hold single child.
-  ///
-  /// ```dart
-  /// Widget build(BuildContext context) {
-  ///   return Scaffold(
-  ///     body: Center(
-  ///       child: SfTheme(
-  ///         data: SfThemeData(
-  ///           chartThemeData: SfChartThemeData(
-  ///             backgroundColor: Colors.grey,
-  ///             brightness: Brightness.dark
-  ///           )
-  ///         ),
-  ///         child: SfCartesianChart(
-  ///         )
-  ///       ),
-  ///     )
-  ///   );
-  /// }
-  /// ```
   final Widget child;
 
   /// Specifies the color and typography values for descendant widgets.
-  ///
-  /// ```dart
-  /// Widget build(BuildContext context) {
-  ///   return Scaffold(
-  ///     body: Center(
-  ///       child: SfTheme(
-  ///         data: SfThemeData(
-  ///           chartThemeData: SfChartThemeData(
-  ///             backgroundColor: Colors.grey,
-  ///             brightness: Brightness.dark
-  ///           )
-  ///         ),
-  ///         child: SfCartesianChart(
-  ///         )
-  ///       ),
-  ///     )
-  ///   );
-  /// }
-  /// ```
-  final SfThemeData? data;
+  final CustomThemeData? data;
 
   //ignore: unused_field
-  static final SfThemeData _kFallbackTheme = SfThemeData.fallback();
+  static final CustomThemeData _kFallbackTheme = CustomThemeData.fallback();
 
-  /// The data from the closest [SfTheme] instance that encloses the given
+  /// The data from the closest [CustomTheme] instance that encloses the given
   /// context.
   ///
-  /// Defaults to [SfThemeData.fallback] if there is no [SfTheme] in the given
+  /// Defaults to [CustomThemeData.fallback] if there is no [CustomTheme] in the given
   /// build context.
   ///
-  static SfThemeData of(BuildContext context) {
-    final _SfInheritedTheme? inheritedTheme =
-        context.dependOnInheritedWidgetOfExactType<_SfInheritedTheme>();
+  static CustomThemeData of(BuildContext context) {
+    final _CustomInheritedTheme? inheritedTheme =
+        context.dependOnInheritedWidgetOfExactType<_CustomInheritedTheme>();
     return inheritedTheme?.data ??
         (Theme.of(context).brightness == Brightness.light
-            ? SfThemeData.light()
-            : SfThemeData.dark());
+            ? CustomThemeData.light()
+            : CustomThemeData.dark());
   }
 
   @override
   Widget build(BuildContext context) {
-    return _SfInheritedTheme(data: data, child: child);
+    return _CustomInheritedTheme(data: data, child: child);
   }
 }
 
-class _SfInheritedTheme extends InheritedTheme {
-  const _SfInheritedTheme({Key? key, this.data, required Widget child})
+class _CustomInheritedTheme extends InheritedTheme {
+  const _CustomInheritedTheme({Key? key, this.data, required Widget child})
       : super(key: key, child: child);
 
-  final SfThemeData? data;
+  final CustomThemeData? data;
 
   @override
-  bool updateShouldNotify(_SfInheritedTheme oldWidget) =>
+  bool updateShouldNotify(_CustomInheritedTheme oldWidget) =>
       data != oldWidget.data;
 
   @override
   Widget wrap(BuildContext context, Widget child) {
-    final _SfInheritedTheme? ancestorTheme =
-        context.findAncestorWidgetOfExactType<_SfInheritedTheme>();
+    final _CustomInheritedTheme? ancestorTheme =
+        context.findAncestorWidgetOfExactType<_CustomInheritedTheme>();
     return identical(this, ancestorTheme)
         ? child
-        : SfTheme(data: data, child: child);
+        : CustomTheme(data: data, child: child);
   }
 }
 
 /// Holds the color and typography values for light and dark themes. Use
-///  this class to configure a [SfTheme] widget.
+///  this class to configure a [CustomTheme] widget.
 ///
-/// To obtain the current theme, use [SfTheme.of].
+/// To obtain the current theme, use [CustomTheme.of].
 ///
-/// ```dart
-/// Widget build(BuildContext context) {
-///   return Scaffold(
-///     body: Center(
-///       child: SfTheme(
-///         data: SfThemeData(
-///           chartThemeData: SfChartThemeData(
-///             backgroundColor: Colors.grey,
-///             brightness: Brightness.dark
-///           )
-///         ),
-///         child: SfCartesianChart(
-///         )
-///       ),
-///     )
-///   );
-/// }
-/// ```
 @immutable
-class SfThemeData with Diagnosticable {
-  /// Creating an argument constructor of SfThemeData class.
-  factory SfThemeData({
+class CustomThemeData with Diagnosticable {
+  /// Creating an argument constructor of CustomThemeData class.
+  factory CustomThemeData({
     Brightness? brightness,
-    SfDateRangePickerThemeData? dateRangePickerThemeData,
+    CustomDateRangePickerThemeData? dateRangePickerThemeData,
   }) {
     brightness ??= Brightness.light;
     dateRangePickerThemeData = dateRangePickerThemeData ??
-        SfDateRangePickerThemeData(brightness: brightness);
-    return SfThemeData.raw(
+        CustomDateRangePickerThemeData(brightness: brightness);
+    return CustomThemeData.raw(
       brightness: brightness,
       dateRangePickerThemeData: dateRangePickerThemeData,
     );
   }
 
-  /// Create a [SfThemeData] given a set of exact values. All the values must be
+  /// Create a [CustomThemeData] given a set of exact values. All the values must be
   /// specified.
   ///
   /// This will rarely be used directly. It is used by [lerp] to
   /// create intermediate themes based on two themes created with the
-  /// [SfThemeData] constructor.
+  /// [CustomThemeData] constructor.
   ///
-  const SfThemeData.raw({
+  const CustomThemeData.raw({
     required this.brightness,
     required this.dateRangePickerThemeData,
   });
 
   /// This method returns the light theme when no theme has been specified.
-  factory SfThemeData.light() => SfThemeData(brightness: Brightness.light);
+  factory CustomThemeData.light() =>
+      CustomThemeData(brightness: Brightness.light);
 
   /// This method is used to return the dark theme.
-  factory SfThemeData.dark() => SfThemeData(brightness: Brightness.dark);
+  factory CustomThemeData.dark() =>
+      CustomThemeData(brightness: Brightness.dark);
 
-  /// The default color theme. Same as [SfThemeData.light].
+  /// The default color theme. Same as [CustomThemeData.light].
   ///
-  /// This is used by [SfTheme.of] when no theme has been specified.
-  factory SfThemeData.fallback() => SfThemeData.light();
+  /// This is used by [CustomTheme.of] when no theme has been specified.
+  factory CustomThemeData.fallback() => CustomThemeData.light();
 
   /// The brightness of the overall theme of the
   /// application for the Syncusion widgets.
@@ -194,49 +122,19 @@ class SfThemeData with Diagnosticable {
   ///
   /// Also refer [Brightness].
   ///
-  /// ```dart
-  /// Widget build(BuildContext context) {
-  ///  return Scaffold(
-  ///    appBar: AppBar(),
-  ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            brightness: Brightness.dark
-  ///          ),
-  ///          child: SfCartesianChart(),
-  ///        ),
-  ///      )
-  ///   );
-  /// }
-  /// ```
   final Brightness brightness;
 
   /// Defines the default configuration of datepicker widgets.
   ///
-  /// ```dart
-  /// Widget build(BuildContext context) {
-  ///  return Scaffold(
-  ///    appBar: AppBar(),
-  ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData()
-  ///          ),
-  ///          child: SfDateRangePicker(),
-  ///        ),
-  ///      )
-  ///   );
-  /// }
-  /// ```
-  final SfDateRangePickerThemeData dateRangePickerThemeData;
+  final CustomDateRangePickerThemeData dateRangePickerThemeData;
 
   /// Creates a copy of this theme but with the given
   /// fields replaced with the new values.
-  SfThemeData copyWith({
+  CustomThemeData copyWith({
     Brightness? brightness,
-    SfDateRangePickerThemeData? dateRangePickerThemeData,
+    CustomDateRangePickerThemeData? dateRangePickerThemeData,
   }) {
-    return SfThemeData.raw(
+    return CustomThemeData.raw(
       brightness: brightness ?? this.brightness,
       dateRangePickerThemeData:
           dateRangePickerThemeData ?? this.dateRangePickerThemeData,
@@ -244,13 +142,14 @@ class SfThemeData with Diagnosticable {
   }
 
   /// Linearly interpolate between two themes.
-  static SfThemeData lerp(SfThemeData? a, SfThemeData? b, double t) {
+  static CustomThemeData lerp(
+      CustomThemeData? a, CustomThemeData? b, double t) {
     assert(a != null);
     assert(b != null);
 
-    return SfThemeData.raw(
+    return CustomThemeData.raw(
       brightness: t < 0.5 ? a!.brightness : b!.brightness,
-      dateRangePickerThemeData: SfDateRangePickerThemeData.lerp(
+      dateRangePickerThemeData: CustomDateRangePickerThemeData.lerp(
           a?.dateRangePickerThemeData, b?.dateRangePickerThemeData, t)!,
     );
   }
@@ -261,7 +160,7 @@ class SfThemeData with Diagnosticable {
       return false;
     }
 
-    return other is SfThemeData &&
+    return other is CustomThemeData &&
         other.brightness == brightness &&
         other.dateRangePickerThemeData == dateRangePickerThemeData;
   }

@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart' show DateFormat;
+
 import 'core.dart';
 import 'date_picker.dart';
 import 'date_picker_manager.dart';
@@ -59,7 +60,7 @@ class YearView extends StatefulWidget {
   /// Defines the background color for selected year cell.
   final Color? selectionColor;
 
-  /// Defines the navigation direction for [SfDateRangePicker].
+  /// Defines the navigation direction for [CustomDateRangePicker].
   final DateRangePickerNavigationDirection navigationDirection;
 
   /// Defines the background color for selected range start date year cell.
@@ -80,10 +81,10 @@ class YearView extends StatefulWidget {
   /// Defines the today cell highlight color.
   final Color? todayHighlightColor;
 
-  /// The minimum date as much as the [SfDateRangePicker] will navigate.
+  /// The minimum date as much as the [CustomDateRangePicker] will navigate.
   final dynamic minDate;
 
-  /// The maximum date as much as the [SfDateRangePicker] will navigate.
+  /// The maximum date as much as the [CustomDateRangePicker] will navigate.
   final dynamic maxDate;
 
   /// Decides to enable past dates or not.
@@ -93,7 +94,7 @@ class YearView extends StatefulWidget {
   final DateRangePickerSelectionShape selectionShape;
 
   /// Holds the theme data for date range picker.
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
 
   /// Used to specify the mouse hover position of the year view.
   final ValueNotifier<HoveringDetails?> mouseHoverPosition;
@@ -104,7 +105,7 @@ class YearView extends StatefulWidget {
   /// Holds the selection radius of the year cell.
   final double selectionRadius;
 
-  /// Holds the [SfDateRangePicker] selection mode.
+  /// Holds the [CustomDateRangePicker] selection mode.
   final DateRangePickerSelectionMode selectionMode;
 
   /// Decides to show the multi view of year view or not.
@@ -113,7 +114,7 @@ class YearView extends StatefulWidget {
   /// Specifies the space between the multi year views.
   final double multiViewSpacing;
 
-  /// Defines the text scale factor of [SfDateRangePicker].
+  /// Defines the text scale factor of [CustomDateRangePicker].
   final double textScaleFactor;
 
   /// Defines the year view panel will draw selection or not.
@@ -599,10 +600,10 @@ class _SingleSelectionRenderWidget extends MultiChildRenderObjectWidget {
   /// Defines the today cell highlight color.
   final Color? todayHighlightColor;
 
-  /// The minimum date as much as the [SfDateRangePicker] will navigate.
+  /// The minimum date as much as the [CustomDateRangePicker] will navigate.
   final dynamic minDate;
 
-  /// The maximum date as much as the [SfDateRangePicker] will navigate.
+  /// The maximum date as much as the [CustomDateRangePicker] will navigate.
   final dynamic maxDate;
 
   /// Decides to enable past dates or not.
@@ -612,7 +613,7 @@ class _SingleSelectionRenderWidget extends MultiChildRenderObjectWidget {
   final DateRangePickerSelectionShape selectionShape;
 
   /// Holds the theme data for date range picker.
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
 
   /// Used to specify the mouse hover position of the year view.
   final ValueNotifier<HoveringDetails?> mouseHoverPosition;
@@ -632,7 +633,7 @@ class _SingleSelectionRenderWidget extends MultiChildRenderObjectWidget {
   /// Specifies the space between the multi year views.
   final double multiViewSpacing;
 
-  /// Defines the text scale factor of [SfDateRangePicker].
+  /// Defines the text scale factor of [CustomDateRangePicker].
   final double textScaleFactor;
 
   final String? monthFormat;
@@ -776,10 +777,10 @@ class _MultiSelectionRenderWidget extends MultiChildRenderObjectWidget {
   /// Defines the today cell highlight color.
   final Color? todayHighlightColor;
 
-  /// The minimum date as much as the [SfDateRangePicker] will navigate.
+  /// The minimum date as much as the [CustomDateRangePicker] will navigate.
   final dynamic minDate;
 
-  /// The maximum date as much as the [SfDateRangePicker] will navigate.
+  /// The maximum date as much as the [CustomDateRangePicker] will navigate.
   final dynamic maxDate;
 
   /// Decides to enable past dates or not.
@@ -789,7 +790,7 @@ class _MultiSelectionRenderWidget extends MultiChildRenderObjectWidget {
   final DateRangePickerSelectionShape selectionShape;
 
   /// Holds the theme data for date range picker.
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
 
   /// Used to specify the mouse hover position of the year view.
   final ValueNotifier<HoveringDetails?> mouseHoverPosition;
@@ -809,7 +810,7 @@ class _MultiSelectionRenderWidget extends MultiChildRenderObjectWidget {
   /// Specifies the space between the multi year views.
   final double multiViewSpacing;
 
-  /// Defines the text scale factor of [SfDateRangePicker].
+  /// Defines the text scale factor of [CustomDateRangePicker].
   final double textScaleFactor;
 
   final String? monthFormat;
@@ -951,10 +952,10 @@ class _RangeSelectionRenderWidget extends MultiChildRenderObjectWidget {
   /// Defines the today cell highlight color.
   final Color? todayHighlightColor;
 
-  /// The minimum date as much as the [SfDateRangePicker] will navigate.
+  /// The minimum date as much as the [CustomDateRangePicker] will navigate.
   final dynamic minDate;
 
-  /// The maximum date as much as the [SfDateRangePicker] will navigate.
+  /// The maximum date as much as the [CustomDateRangePicker] will navigate.
   final dynamic maxDate;
 
   final DateRangePickerNavigationDirection navigationDirection;
@@ -966,7 +967,7 @@ class _RangeSelectionRenderWidget extends MultiChildRenderObjectWidget {
   final DateRangePickerSelectionShape selectionShape;
 
   /// Holds the theme data for date range picker.
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
 
   /// Used to specify the mouse hover position of the year view.
   final ValueNotifier<HoveringDetails?> mouseHoverPosition;
@@ -986,7 +987,7 @@ class _RangeSelectionRenderWidget extends MultiChildRenderObjectWidget {
   /// Specifies the space between the multi year views.
   final double multiViewSpacing;
 
-  /// Defines the text scale factor of [SfDateRangePicker].
+  /// Defines the text scale factor of [CustomDateRangePicker].
   final double textScaleFactor;
 
   final String? monthFormat;
@@ -1129,10 +1130,10 @@ class _ExtendableRangeSelectionRenderWidget
   /// Defines the today cell highlight color.
   final Color? todayHighlightColor;
 
-  /// The minimum date as much as the [SfDateRangePicker] will navigate.
+  /// The minimum date as much as the [CustomDateRangePicker] will navigate.
   final dynamic minDate;
 
-  /// The maximum date as much as the [SfDateRangePicker] will navigate.
+  /// The maximum date as much as the [CustomDateRangePicker] will navigate.
   final dynamic maxDate;
 
   final DateRangePickerNavigationDirection navigationDirection;
@@ -1144,7 +1145,7 @@ class _ExtendableRangeSelectionRenderWidget
   final DateRangePickerSelectionShape selectionShape;
 
   /// Holds the theme data for date range picker.
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
 
   /// Used to specify the mouse hover position of the year view.
   final ValueNotifier<HoveringDetails?> mouseHoverPosition;
@@ -1164,7 +1165,7 @@ class _ExtendableRangeSelectionRenderWidget
   /// Specifies the space between the multi year views.
   final double multiViewSpacing;
 
-  /// Defines the text scale factor of [SfDateRangePicker].
+  /// Defines the text scale factor of [CustomDateRangePicker].
   final double textScaleFactor;
 
   final String? monthFormat;
@@ -1307,13 +1308,13 @@ class _MultiRangeSelectionRenderWidget extends MultiChildRenderObjectWidget {
   /// Defines the today cell highlight color.
   final Color? todayHighlightColor;
 
-  /// The minimum date as much as the [SfDateRangePicker] will navigate.
+  /// The minimum date as much as the [CustomDateRangePicker] will navigate.
   final dynamic minDate;
 
-  /// The maximum date as much as the [SfDateRangePicker] will navigate.
+  /// The maximum date as much as the [CustomDateRangePicker] will navigate.
   final dynamic maxDate;
 
-  /// Defines the navigation direction for [SfDateRangePicker].
+  /// Defines the navigation direction for [CustomDateRangePicker].
   final DateRangePickerNavigationDirection navigationDirection;
 
   /// Decides to enable past dates or not.
@@ -1323,7 +1324,7 @@ class _MultiRangeSelectionRenderWidget extends MultiChildRenderObjectWidget {
   final DateRangePickerSelectionShape selectionShape;
 
   /// Holds the theme data for date range picker.
-  final SfDateRangePickerThemeData datePickerTheme;
+  final CustomDateRangePickerThemeData datePickerTheme;
 
   /// Used to specify the mouse hover position of the year view.
   final ValueNotifier<HoveringDetails?> mouseHoverPosition;
@@ -1331,7 +1332,7 @@ class _MultiRangeSelectionRenderWidget extends MultiChildRenderObjectWidget {
   /// Used to call repaint when the selection changes.
   final ValueNotifier<bool> selectionNotifier;
 
-  /// Holds the selected value based on [SfDateRangePicker] selection mode.
+  /// Holds the selected value based on [CustomDateRangePicker] selection mode.
   final List<dynamic>? selectedRanges;
 
   /// Holds the selection radius of the year cell.
@@ -1343,7 +1344,7 @@ class _MultiRangeSelectionRenderWidget extends MultiChildRenderObjectWidget {
   /// Specifies the space between the multi year views.
   final double multiViewSpacing;
 
-  /// Defines the text scale factor of [SfDateRangePicker].
+  /// Defines the text scale factor of [CustomDateRangePicker].
   final double textScaleFactor;
 
   final String? monthFormat;
@@ -1639,11 +1640,11 @@ abstract class _IYearViewRenderObject extends RenderBox
     markNeedsPaint();
   }
 
-  SfDateRangePickerThemeData _datePickerTheme;
+  CustomDateRangePickerThemeData _datePickerTheme;
 
-  SfDateRangePickerThemeData get datePickerTheme => _datePickerTheme;
+  CustomDateRangePickerThemeData get datePickerTheme => _datePickerTheme;
 
-  set datePickerTheme(SfDateRangePickerThemeData value) {
+  set datePickerTheme(CustomDateRangePickerThemeData value) {
     if (_datePickerTheme == value) {
       return;
     }
@@ -2510,7 +2511,7 @@ class _SingleSelectionRenderObject extends _IYearViewRenderObject {
       Color? todayHighlightColor,
       DateRangePickerSelectionShape selectionShape,
       bool isRtl,
-      SfDateRangePickerThemeData datePickerTheme,
+      CustomDateRangePickerThemeData datePickerTheme,
       ValueNotifier<HoveringDetails?> mouseHoverPosition,
       bool enableMultiView,
       double multiViewSpacing,
@@ -2654,7 +2655,7 @@ class _MultipleSelectionRenderObject extends _IYearViewRenderObject {
       Color? todayHighlightColor,
       DateRangePickerSelectionShape selectionShape,
       bool isRtl,
-      SfDateRangePickerThemeData datePickerTheme,
+      CustomDateRangePickerThemeData datePickerTheme,
       ValueNotifier<HoveringDetails?> mouseHoverPosition,
       bool enableMultiView,
       double multiViewSpacing,
@@ -2799,7 +2800,7 @@ class _RangeSelectionRenderObject extends _IYearViewRenderObject {
       Color? todayHighlightColor,
       DateRangePickerSelectionShape selectionShape,
       bool isRtl,
-      SfDateRangePickerThemeData datePickerTheme,
+      CustomDateRangePickerThemeData datePickerTheme,
       ValueNotifier<HoveringDetails?> mouseHoverPosition,
       bool enableMultiView,
       double multiViewSpacing,
@@ -3033,7 +3034,7 @@ class _ExtendableRangeSelectionRenderObject extends _IYearViewRenderObject {
       Color? todayHighlightColor,
       DateRangePickerSelectionShape selectionShape,
       bool isRtl,
-      SfDateRangePickerThemeData datePickerTheme,
+      CustomDateRangePickerThemeData datePickerTheme,
       ValueNotifier<HoveringDetails?> mouseHoverPosition,
       bool enableMultiView,
       double multiViewSpacing,
@@ -3269,7 +3270,7 @@ class _MultiRangeSelectionRenderObject extends _IYearViewRenderObject {
       Color? todayHighlightColor,
       DateRangePickerSelectionShape selectionShape,
       bool isRtl,
-      SfDateRangePickerThemeData datePickerTheme,
+      CustomDateRangePickerThemeData datePickerTheme,
       ValueNotifier<HoveringDetails?> mouseHoverPosition,
       bool enableMultiView,
       double multiViewSpacing,

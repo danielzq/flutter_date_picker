@@ -10,20 +10,20 @@ import 'theme_widget.dart';
 /// ```dart
 /// Widget build(BuildContext context) {
 ///  return Scaffold(
-///     body: SfDateRangePickerTheme(
-///       data: SfDateRangePickerThemeData(
+///     body: CustomDateRangePickerTheme(
+///       data: CustomDateRangePickerThemeData(
 ///         backgroundColor: Colors.grey,
 ///         brightness: Brightness.dark,
 ///       ),
-///       child: SfDateRangePicker()
+///       child: CustomDateRangePicker()
 ///     ),
 ///   );
 /// }
 /// ```
-class SfDateRangePickerTheme extends InheritedTheme {
+class CustomDateRangePickerTheme extends InheritedTheme {
   /// Constructor for teh calendar theme class, which applies a theme to
   /// descendant Syncfusion date range picker widgets.
-  const SfDateRangePickerTheme(
+  const CustomDateRangePickerTheme(
       {Key? key, required this.data, required this.child})
       : super(key: key, child: child);
 
@@ -32,29 +32,29 @@ class SfDateRangePickerTheme extends InheritedTheme {
   /// ```dart
   /// Widget build(BuildContext context) {
   ///  return Scaffold(
-  ///     body: SfDateRangePickerTheme(
-  ///       data: SfDateRangePickerThemeData(
+  ///     body: CustomDateRangePickerTheme(
+  ///       data: CustomDateRangePickerThemeData(
   ///         backgroundColor: Colors.grey,
   ///         brightness: Brightness.dark,
   ///       ),
-  ///       child: SfDateRangePicker()
+  ///       child: CustomDateRangePicker()
   ///     ),
   ///   );
   /// }
   /// ```
-  final SfDateRangePickerThemeData data;
+  final CustomDateRangePickerThemeData data;
 
   /// Specifies a widget that can hold single child.
   ///
   /// ```dart
   /// Widget build(BuildContext context) {
   ///  return Scaffold(
-  ///     body: SfDateRangePickerTheme(
-  ///       data: SfDateRangePickerThemeData(
+  ///     body: CustomDateRangePickerTheme(
+  ///       data: CustomDateRangePickerThemeData(
   ///         backgroundColor: Colors.grey,
   ///         brightness: Brightness.dark,
   ///       ),
-  ///       child: SfDateRangePicker()
+  ///       child: CustomDateRangePicker()
   ///     ),
   ///   );
   /// }
@@ -62,55 +62,55 @@ class SfDateRangePickerTheme extends InheritedTheme {
   @override
   final Widget child;
 
-  /// The data from the closest [SfDateRangePickerTheme] instance
+  /// The data from the closest [CustomDateRangePickerTheme] instance
   /// that encloses the given context.
   ///
-  /// Defaults to [SfThemeData.dateRangePickerTheme] if there is no
-  /// [SfDateRangePickerTheme] in the given build context.
-  static SfDateRangePickerThemeData of(BuildContext context) {
-    final SfDateRangePickerTheme? sfDateRangePickerTheme =
-        context.dependOnInheritedWidgetOfExactType<SfDateRangePickerTheme>();
-    return sfDateRangePickerTheme?.data ??
-        SfTheme.of(context).dateRangePickerThemeData;
+  /// Defaults to [CustomThemeData.dateRangePickerTheme] if there is no
+  /// [CustomDateRangePickerTheme] in the given build context.
+  static CustomDateRangePickerThemeData of(BuildContext context) {
+    final CustomDateRangePickerTheme? customDateRangePickerTheme = context
+        .dependOnInheritedWidgetOfExactType<CustomDateRangePickerTheme>();
+    return customDateRangePickerTheme?.data ??
+        CustomTheme.of(context).dateRangePickerThemeData;
   }
 
   @override
-  bool updateShouldNotify(SfDateRangePickerTheme oldWidget) =>
+  bool updateShouldNotify(CustomDateRangePickerTheme oldWidget) =>
       data != oldWidget.data;
 
   @override
   Widget wrap(BuildContext context, Widget child) {
-    final SfDateRangePickerTheme? ancestorTheme =
-        context.findAncestorWidgetOfExactType<SfDateRangePickerTheme>();
+    final CustomDateRangePickerTheme? ancestorTheme =
+        context.findAncestorWidgetOfExactType<CustomDateRangePickerTheme>();
     return identical(this, ancestorTheme)
         ? child
-        : SfDateRangePickerTheme(data: data, child: child);
+        : CustomDateRangePickerTheme(data: data, child: child);
   }
 }
 
-/// Holds the color and typography values for a [SfDateRangePickerTheme]. Use
-///  this class to configure a [SfDateRangePickerTheme] widget
+/// Holds the color and typography values for a [CustomDateRangePickerTheme]. Use
+///  this class to configure a [CustomDateRangePickerTheme] widget
 ///
-/// To obtain the current theme, use [SfDateRangePickerTheme.of].
+/// To obtain the current theme, use [CustomDateRangePickerTheme.of].
 ///
 /// ```dart
 /// Widget build(BuildContext context) {
 ///  return Scaffold(
-///     body: SfDateRangePickerTheme(
-///       data: SfDateRangePickerThemeData(
+///     body: CustomDateRangePickerTheme(
+///       data: CustomDateRangePickerThemeData(
 ///         backgroundColor: Colors.grey,
 ///         brightness: Brightness.dark,
 ///       ),
-///       child: SfDateRangePicker()
+///       child: CustomDateRangePicker()
 ///     ),
 ///   );
 /// }
 /// ```
 @immutable
-class SfDateRangePickerThemeData with Diagnosticable {
-  /// Create a [SfDateRangePickerThemeData] that's used to configure a
-  /// [SfDateRangePickerTheme].
-  factory SfDateRangePickerThemeData({
+class CustomDateRangePickerThemeData with Diagnosticable {
+  /// Create a [CustomDateRangePickerThemeData] that's used to configure a
+  /// [CustomDateRangePickerTheme].
+  factory CustomDateRangePickerThemeData({
     Brightness? brightness,
     Color? backgroundColor,
     Color? startRangeSelectionColor,
@@ -217,7 +217,7 @@ class SfDateRangePickerThemeData with Diagnosticable {
         : const TextStyle(
             color: Colors.white, fontSize: 13, fontFamily: 'Roboto');
 
-    return SfDateRangePickerThemeData.raw(
+    return CustomDateRangePickerThemeData.raw(
         brightness: brightness,
         backgroundColor: backgroundColor,
         viewHeaderTextStyle: viewHeaderTextStyle,
@@ -247,13 +247,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
         weekNumberTextStyle: weekNumberTextStyle);
   }
 
-  /// Create a [SfDateRangePickerThemeData] given a set of exact values.
+  /// Create a [CustomDateRangePickerThemeData] given a set of exact values.
   /// All the values must be specified.
   ///
   /// This will rarely be used directly. It is used by [lerp] to
   /// create intermediate themes based on two themes created with the
-  /// [SfDateRangePickerThemeData] constructor.
-  const SfDateRangePickerThemeData.raw(
+  /// [CustomDateRangePickerThemeData] constructor.
+  const CustomDateRangePickerThemeData.raw(
       {required this.brightness,
       required this.backgroundColor,
       required this.viewHeaderTextStyle,
@@ -296,13 +296,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///   return Scaffold(
   ///     appBar: AppBar(),
   ///     body: Center(
-  ///       child: SfTheme(
-  ///         data: SfThemeData(
-  ///           dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///       child: CustomTheme(
+  ///         data: CustomThemeData(
+  ///           dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///             brightness: Brightness.light
   ///           )
   ///         ),
-  ///         child: SfDateRangePicker(),
+  ///         child: CustomDateRangePicker(),
   ///       ),
   ///     )
   ///   );
@@ -317,13 +317,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///   return Scaffold(
   ///     appBar: AppBar(),
   ///       body: Center(
-  ///         child: SfTheme(
-  ///           data: SfThemeData(
-  ///             dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///         child: CustomTheme(
+  ///           data: CustomThemeData(
+  ///             dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///               backgroundColor: Colors.grey
   ///             )
   ///           ),
-  ///           child: SfDateRangePicker(),
+  ///           child: CustomDateRangePicker(),
   ///         ),
   ///       )
   ///   );
@@ -338,14 +338,14 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///   return Scaffold(
   ///     appBar: AppBar(),
   ///       body: Center(
-  ///         child: SfTheme(
-  ///           data: SfThemeData(
-  ///             dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///         child: CustomTheme(
+  ///           data: CustomThemeData(
+  ///             dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///               viewHeaderTextStyle: TextStyle(backgroundColor:
   ///                 Colors.greenAccent)
   ///             )
   ///           ),
-  ///           child: SfDateRangePicker(),
+  ///           child: CustomDateRangePicker(),
   ///         ),
   ///       )
   ///   );
@@ -360,13 +360,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              headerTextStyle: TextStyle(fontSize: 14)
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -381,13 +381,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              trailingDatesTextStyle: TextStyle(color: Colors.red)
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -402,14 +402,14 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              leadingCellTextStyle: TextStyle(color: Colors.red,
   ///                backgroundColor: Colors.green)
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -424,13 +424,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              activeDatesTextStyle: TextStyle(color: Colors.grey)
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -445,13 +445,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              cellTextStyle: TextStyle(color: Colors.blueAccent)
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -467,14 +467,14 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              rangeSelectionTextStyle: TextStyle(decoration:
   ///                TextDecoration.lineThrough)
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -489,13 +489,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              leadingDatesTextStyle: TextStyle(color: Colors.red)
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -510,13 +510,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              disabledDatesTextStyle: TextStyle(color:Colors.tealAccent)
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -531,13 +531,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              disabledCellTextStyle: TextStyle(color: Colors.yellowAccent),
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -553,13 +553,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              selectionColor: Colors.pinkAccent
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -575,13 +575,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              rangeSelectionColor: Colors.cyan
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -596,13 +596,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              weekNumberBackgroundColor: Colors.blue,
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -619,14 +619,14 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              selectionTextStyle: TextStyle(decoration:
   ///                TextDecoration.overline)
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -642,13 +642,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              startRangeSelectionColor: Colors.green
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -664,13 +664,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              endRangeSelectionColor: Colors.green
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -685,13 +685,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              headerBackgroundColor: Colors.purple
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -706,13 +706,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              viewHeaderBackgroundColor: Colors.purpleAccent
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -727,13 +727,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              blackoutDatesTextStyle: TextStyle(color:Colors.green[300])
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -748,13 +748,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              todayHighlightColor: Colors.red
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -769,13 +769,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              todayTextStyle: TextStyle(backgroundColor: Colors.yellow)
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -790,13 +790,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              todayCellTextStyle: TextStyle(fontWeight: FontWeight.bold)
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -811,14 +811,14 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              weekendDatesTextStyle: TextStyle(fontWeight: FontWeight.bold,
   ///                decoration: TextDecoration.lineThrough)
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -833,13 +833,13 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              specialDatesTextStyle: TextStyle(color: Colors.orange)
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -854,15 +854,15 @@ class SfDateRangePickerThemeData with Diagnosticable {
   ///  return Scaffold(
   ///    appBar: AppBar(),
   ///      body: Center(
-  ///        child: SfTheme(
-  ///          data: SfThemeData(
-  ///            dateRangePickerThemeData: SfDateRangePickerThemeData(
+  ///        child: CustomTheme(
+  ///          data: CustomThemeData(
+  ///            dateRangePickerThemeData: CustomDateRangePickerThemeData(
   ///              weekNumberBackgroundColor: Colors.blue,
   ///              weekNumberTextStyle: TextStyle(color: Colors.grey,
   ///              fontSize: 20),
   ///            )
   ///          ),
-  ///          child: SfDateRangePicker(),
+  ///          child: CustomDateRangePicker(),
   ///        ),
   ///      )
   ///   );
@@ -872,7 +872,7 @@ class SfDateRangePickerThemeData with Diagnosticable {
 
   /// Creates a copy of this theme but with the given
   /// fields replaced with the new values.
-  SfDateRangePickerThemeData copyWith({
+  CustomDateRangePickerThemeData copyWith({
     Brightness? brightness,
     TextStyle? viewHeaderTextStyle,
     Color? backgroundColor,
@@ -901,7 +901,7 @@ class SfDateRangePickerThemeData with Diagnosticable {
     TextStyle? specialDatesTextStyle,
     TextStyle? weekNumberTextStyle,
   }) {
-    return SfDateRangePickerThemeData.raw(
+    return CustomDateRangePickerThemeData.raw(
       brightness: brightness ?? this.brightness,
       backgroundColor: backgroundColor ?? this.backgroundColor,
       viewHeaderTextStyle: viewHeaderTextStyle ?? this.viewHeaderTextStyle,
@@ -946,12 +946,12 @@ class SfDateRangePickerThemeData with Diagnosticable {
   }
 
   /// Linearly interpolate between two themes.
-  static SfDateRangePickerThemeData? lerp(
-      SfDateRangePickerThemeData? a, SfDateRangePickerThemeData? b, double t) {
+  static CustomDateRangePickerThemeData? lerp(CustomDateRangePickerThemeData? a,
+      CustomDateRangePickerThemeData? b, double t) {
     if (a == null && b == null) {
       return null;
     }
-    return SfDateRangePickerThemeData(
+    return CustomDateRangePickerThemeData(
       backgroundColor: Color.lerp(a!.backgroundColor, b!.backgroundColor, t),
       rangeSelectionColor:
           Color.lerp(a.rangeSelectionColor, b.rangeSelectionColor, t),
@@ -980,7 +980,7 @@ class SfDateRangePickerThemeData with Diagnosticable {
       return false;
     }
 
-    return other is SfDateRangePickerThemeData &&
+    return other is CustomDateRangePickerThemeData &&
         other.viewHeaderTextStyle == viewHeaderTextStyle &&
         other.backgroundColor == backgroundColor &&
         other.headerTextStyle == headerTextStyle &&
@@ -1045,7 +1045,8 @@ class SfDateRangePickerThemeData with Diagnosticable {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    final SfDateRangePickerThemeData defaultData = SfDateRangePickerThemeData();
+    final CustomDateRangePickerThemeData defaultData =
+        CustomDateRangePickerThemeData();
     properties.add(EnumProperty<Brightness>('brightness', brightness,
         defaultValue: defaultData.brightness));
     properties.add(ColorProperty('backgroundColor', backgroundColor,
