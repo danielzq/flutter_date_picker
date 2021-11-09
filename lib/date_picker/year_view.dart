@@ -2091,7 +2091,7 @@ abstract class _IYearViewRenderObject extends RenderBox
         }
 
         if (!DateRangePickerHelper.isBetweenMinMaxDateCell(
-            date, _minDate, _maxDate, _enablePastDates, _view, false)) {
+            date, _minDate, _maxDate, _enablePastDates, _view)) {
           semanticsBuilder.add(CustomPainterSemantics(
             rect: Rect.fromLTWH(startXPosition + left, startYPosition + top,
                 cellWidth, cellHeight),
@@ -2142,7 +2142,7 @@ abstract class _IYearViewRenderObject extends RenderBox
 
     final dynamic viewStartDate = visibleDates[viewStartIndex];
     final dynamic viewEndDate = DateRangePickerHelper.getLastDate(
-        visibleDates[viewEndIndex], pickerView, false);
+        visibleDates[viewEndIndex], pickerView);
     if (startDate != null) {
       /// Assign start index as -1 when the start date before view start date.
       if (viewStartDate.isAfter(startDate) == true &&
@@ -3610,12 +3610,12 @@ void _drawYearCells(
         final dynamic date = yearView.visibleDates[currentIndex];
         final bool isSelected = selectedIndex.contains(currentIndex);
         final bool isEnableDate = DateRangePickerHelper.isBetweenMinMaxDateCell(
-            date,
-            yearView.minDate,
-            yearView.maxDate,
-            yearView.enablePastDates,
-            view,
-            false);
+          date,
+          yearView.minDate,
+          yearView.maxDate,
+          yearView.enablePastDates,
+          view,
+        );
 
         if (isSelected && isEnableDate) {
           yearView.drawCustomCellSelection(
@@ -3659,7 +3659,7 @@ void _drawYearCells(
     return;
   }
 
-  final dynamic today = DateRangePickerHelper.getToday(false);
+  final dynamic today = DateRangePickerHelper.getToday();
   yearView._textPainter.textScaleFactor = yearView.textScaleFactor;
 
   const double decorationPadding = 1;
@@ -3723,12 +3723,12 @@ void _drawYearCells(
           DateRangePickerHelper.isSameCellDates(date, today, view);
       final bool isSelected = selectedIndex.contains(currentIndex);
       final bool isEnableDate = DateRangePickerHelper.isBetweenMinMaxDateCell(
-          date,
-          yearView.minDate,
-          yearView.maxDate,
-          yearView.enablePastDates,
-          view,
-          false);
+        date,
+        yearView.minDate,
+        yearView.maxDate,
+        yearView.enablePastDates,
+        view,
+      );
       final bool isActiveDate = _isCurrentViewDateCell(
           date, j, yearView.visibleDates, yearView.enableMultiView, view);
       final TextStyle style = yearView._updateCellTextStyle(

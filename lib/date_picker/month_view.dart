@@ -2278,7 +2278,7 @@ abstract class _IMonthView extends RenderBox
                 : xPosition;
           }
           final int weekNumber =
-              DateRangePickerHelper.getWeekNumberOfYear(currentDate, false);
+              DateRangePickerHelper.getWeekNumberOfYear(currentDate);
           semanticsBuilder.add(CustomPainterSemantics(
               rect: Rect.fromLTWH(
                   xPosition, top, weekNumberPanelWidth, cellHeight),
@@ -2288,8 +2288,8 @@ abstract class _IMonthView extends RenderBox
               )));
         }
 
-        if (!DateRangePickerHelper.isDateAsCurrentMonthDate(middleDate,
-            _rowCount, _showLeadingAndTailingDates, currentDate, false)) {
+        if (!DateRangePickerHelper.isDateAsCurrentMonthDate(
+            middleDate, _rowCount, _showLeadingAndTailingDates, currentDate)) {
           leftAndTopValue = DateRangePickerHelper.getTopAndLeftValues(
               _isRtl, left, top, cellWidth, cellHeight, width);
           left = leftAndTopValue['left']!;
@@ -2311,7 +2311,7 @@ abstract class _IMonthView extends RenderBox
           top = leftAndTopValue['top']!;
           continue;
         } else if (!DateRangePickerHelper.isEnabledDate(
-            _minDate, _maxDate, _enablePastDates, currentDate, false)) {
+            _minDate, _maxDate, _enablePastDates, currentDate)) {
           semanticsBuilder.add(CustomPainterSemantics(
             rect: Rect.fromLTWH(viewXStartPosition + left,
                 viewYStartPosition + top, cellWidth, cellHeight),
@@ -3885,11 +3885,11 @@ void _drawMonthCellsAndSelection(PaintingContext context, Size size,
         }
 
         final bool isEnableDate = DateRangePickerHelper.isEnabledDate(
-            monthView.minDate,
-            monthView.maxDate,
-            monthView.enablePastDates,
-            date,
-            false);
+          monthView.minDate,
+          monthView.maxDate,
+          monthView.enablePastDates,
+          date,
+        );
         final bool isBlackedDate =
             DateRangePickerHelper.isDateWithInVisibleDates(
                 monthView.visibleDates, monthView.blackoutDates, date);
@@ -3959,7 +3959,7 @@ void _drawMonthCellsAndSelection(PaintingContext context, Size size,
     return;
   }
 
-  final dynamic today = DateRangePickerHelper.getToday(false);
+  final dynamic today = DateRangePickerHelper.getToday();
   if (!isHorizontalMultiView) {
     _drawWeekNumberPanel(
         canvas, size, weekNumberPanelWidth, monthView, isHorizontalMultiView);
@@ -4123,11 +4123,11 @@ void _drawMonthCellsAndSelection(PaintingContext context, Size size,
 
       isCurrentDate = isSameDate(date, today);
       final bool isEnableDate = DateRangePickerHelper.isEnabledDate(
-          monthView.minDate,
-          monthView.maxDate,
-          monthView.enablePastDates,
-          date,
-          false);
+        monthView.minDate,
+        monthView.maxDate,
+        monthView.enablePastDates,
+        date,
+      );
       final bool isBlackedDate = DateRangePickerHelper.isDateWithInVisibleDates(
           monthView.visibleDates, monthView.blackoutDates, date);
       final bool isWeekEnd =
@@ -4220,7 +4220,7 @@ void _drawWeekNumber(
     double viewStartPosition,
     double viewEndPosition) {
   final String weekNumber =
-      DateRangePickerHelper.getWeekNumberOfYear(date, false).toString();
+      DateRangePickerHelper.getWeekNumberOfYear(date).toString();
   final TextStyle weekNumberTextStyle = monthView.weekNumberStyle.textStyle ??
       monthView.datePickerTheme.weekNumberTextStyle;
   final TextSpan textSpan =
