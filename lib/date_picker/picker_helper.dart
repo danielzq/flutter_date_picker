@@ -524,7 +524,7 @@ class DateRangePickerHelper {
   }
 
   /// Returns teh [CustomDatePickerEnum] value based on the given value.
-  static CustomDatePickerEnum getHijriPickerView(dynamic view) {
+  static CustomDatePickerEnum getCustomPickerView(dynamic view) {
     if (view is CustomDatePickerEnum) {
       return view;
     }
@@ -852,12 +852,12 @@ class PickerStateArgs {
 }
 
 enum CustomDatePickerEnum {
-  /// - HijriDatePickerView.month, Displays the month view.
+  /// - CustomDatePickerView.month, Displays the month view.
   month,
 
-  /// - HijriDatePickerView.year, Displays the year view.
+  /// - CustomDatePickerView.year, Displays the year view.
   year,
 
-  /// - HijriDatePickerView.decade, Displays the decade view.
+  /// - CustomDatePickerView.decade, Displays the decade view.
   decade,
 }

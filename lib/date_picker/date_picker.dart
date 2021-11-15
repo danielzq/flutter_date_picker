@@ -8406,8 +8406,7 @@ class _PickerViewHeaderPainter extends CustomPainter {
         String dayText =
             DateFormat(monthViewSettings.dayFormat, locale.toString())
                 .format(currentDate)
-                .toString()
-                .toUpperCase();
+                .toString();
         dayText = _updateViewHeaderFormat(dayText);
 
         if (hasToday &&

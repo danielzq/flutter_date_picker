@@ -494,7 +494,7 @@ class DateRangePickerMonthViewSettings with Diagnosticable {
   /// is set to [false].
   ///
   /// This property not applicable when the [CustomDateRangePicker.pickerMode] set
-  ///  as [DateRangePickerMode.hijri].
+  ///  as [DateRangePickerMode.Custom].
   ///
   /// See also: [DateRangePickerMonthCellStyle] to know about leading and
   /// trailing dates style.
@@ -667,7 +667,7 @@ class DateRangePickerMonthViewSettings with Diagnosticable {
   /// Defaults to `false`.
   ///
   /// _Note:_ This property not applicable when the
-  /// [CustomDateRangePicker.pickerMode] set as [DateRangePickerMode.hijri].
+  /// [CustomDateRangePicker.pickerMode] set as [DateRangePickerMode.Custom].
   ///
   /// ```dart
   ///
@@ -1030,7 +1030,7 @@ class DateRangePickerYearCellStyle with Diagnosticable {
   /// appearance of various components of the date range picker.
   ///
   /// _Note:_ This property not applicable when the
-  /// [CustomDateRangePicker.pickerMode] set as [DateRangePickerMode.hijri].
+  /// [CustomDateRangePicker.pickerMode] set as [DateRangePickerMode.Custom].
   ///
   /// ```dart
   ///
@@ -1195,7 +1195,7 @@ class DateRangePickerYearCellStyle with Diagnosticable {
   /// appearance of various components of the date range picker.
   ///
   /// _Note:_ This property not applicable when the
-  /// [CustomDateRangePicker.pickerMode] set as [DateRangePickerMode.hijri].
+  /// [CustomDateRangePicker.pickerMode] set as [DateRangePickerMode.Custom].
   ///
   /// ```dart
   ///
@@ -1442,7 +1442,7 @@ class DateRangePickerMonthCellStyle with Diagnosticable {
   /// set as [true].
   ///
   /// This property not applicable when the [CustomDateRangePicker.pickerMode] set
-  /// as [DateRangePickerMode.hijri].
+  /// as [DateRangePickerMode.Custom].
   ///
   /// See also:[DateRangePickerMonthViewSettings.showTrailingAndLeadingDates].
   ///
@@ -1484,7 +1484,7 @@ class DateRangePickerMonthCellStyle with Diagnosticable {
   /// set as [true].
   ///
   /// This property not applicable when the [CustomDateRangePicker.pickerMode] set
-  /// as [DateRangePickerMode.hijri].
+  /// as [DateRangePickerMode.Custom].
   ///
   /// See also:[DateRangePickerMonthViewSettings.showTrailingAndLeadingDates].
   ///
@@ -1944,7 +1944,7 @@ class DateRangePickerMonthCellStyle with Diagnosticable {
   /// set as [true].
   ///
   /// This property not applicable when the [CustomDateRangePicker.pickerMode] set
-  /// as [DateRangePickerMode.hijri].
+  /// as [DateRangePickerMode.Custom].
   ///
   /// See also:[DateRangePickerMonthViewSettings.showTrailingAndLeadingDates].
   ///
@@ -1986,7 +1986,7 @@ class DateRangePickerMonthCellStyle with Diagnosticable {
   /// as [true].
   ///
   /// This property not applicable when the [CustomDateRangePicker.pickerMode] set
-  /// as [DateRangePickerMode.hijri].
+  /// as [DateRangePickerMode.Custom].
   ///
   /// See also:[DateRangePickerMonthViewSettings.showLeadingAndTrailingDate].
   ///
@@ -2901,7 +2901,7 @@ enum DateRangePickerSelectionMode {
   ///
   /// [pickerDateRange]
   ///
-  /// [HijriDateRange]
+  /// [CustomDateRange]
   extendableRange,
 }
 
@@ -2919,7 +2919,7 @@ enum DateRangePickerView {
   /// - DateRangePickerView.century, Display the century view.
   ///
   /// _Note:_ This property not applicable when the
-  /// [CustomDateRangePicker.pickerMode] set as [DateRangePickerMode.hijri].
+  /// [CustomDateRangePicker.pickerMode] set as [DateRangePickerMode.Custom].
   century
 }
 
@@ -2948,14 +2948,14 @@ enum DateRangePickerNavigationDirection {
 /// A type specifies how the date picker navigation interaction works.
 enum DateRangePickerNavigationMode {
   /// Disables the next or previous view dates to be shown by scrolling or
-  /// swipe interaction in [CustomDateRangePicker] and [CustomHijriDateRangePicker].
+  /// swipe interaction in [CustomDateRangePicker] and [CustomCustomDateRangePicker].
   ///
   /// It will not impact [DateRangePickerController.forward()],
   /// [DateRangePickerController.backward()] and [showNavigationArrow].
   none,
 
   /// Allows navigating to previous/next views through swipe interaction in
-  /// [CustomDateRangePicker] and [CustomHijriDateRangePicker].
+  /// [CustomDateRangePicker] and [CustomCustomDateRangePicker].
   snap,
 
   /// Enable free-scrolling based on [CustomDateRangePicker]'s navigation direction.

@@ -1,6 +1,6 @@
 part of core;
 
-/// Umm al-quara based array, to convert the date to hijri date time.
+/// Umm al-quara based array, to convert the date to Custom date time.
 const List<int> _kDateCollection = <int>[
   28607,
   28636,
@@ -1745,53 +1745,53 @@ const List<int> _kDateCollection = <int>[
   79990
 ];
 
-/// An HijriDateTime data.
+/// An CustomDateTime data.
 ///
-/// An object contains the properties about the date time along with hijri data.
+/// An object contains the properties about the date time along with Custom data.
 ///
 /// ```dart
-/// final HijriDateTime date = HijriDateTime(1442, 02, 10);
+/// final CustomDateTime date = CustomDateTime(1442, 02, 10);
 ///
 /// ```
 @immutable
 class CustomDateTime {
-  /// Creates a instance for HijriDateTime instance with given data.
+  /// Creates a instance for CustomDateTime instance with given data.
   CustomDateTime(this.year, this.month, this.day)
       : _date =
             convertToGregorianDate(null, year: year, month: month, day: day);
 
-  /// returns the hijri date value based on the current date
+  /// returns the Custom date value based on the current date
   ///
   /// ```dart
   ///
-  /// final HijriDateTime currentDate = HijriDateTime.now();
+  /// final CustomDateTime currentDate = CustomDateTime.now();
   ///
   /// ```
   static CustomDateTime now() {
     final DateTime today = DateTime.now();
-    return convertToHijriDate(today);
+    return convertToCustomDate(today);
   }
 
   /// The gregorian date value for [this]
   final DateTime _date;
 
-  /// returns the hijri date from the given date
+  /// returns the Custom date from the given date
   ///
   /// ```dart
   ///
-  /// final HijriDateTime currentDate = HijriDateTime.fromDateTime(
+  /// final CustomDateTime currentDate = CustomDateTime.fromDateTime(
   ///                                                           DateTime.now));
   ///
   /// ```
   static CustomDateTime fromDateTime(DateTime date) {
-    return convertToHijriDate(date);
+    return convertToCustomDate(date);
   }
 
   /// Returns the gregorian date value of [this] value.
   ///
   /// ```
   ///
-  /// final HijriDateTime currentDate = HijriDateTime.now();
+  /// final CustomDateTime currentDate = CustomDateTime.now();
   /// final DateTime date = currentDate.toDateTime();
   ///
   /// ```
@@ -1799,19 +1799,19 @@ class CustomDateTime {
     return _date;
   }
 
-  /// Defines the hijri year value.
+  /// Defines the Custom year value.
   final int year;
 
-  /// Defines the hijri month value from {1 ... 12}.
+  /// Defines the Custom month value from {1 ... 12}.
   final int month;
 
-  /// Defines the hijri day value.
+  /// Defines the Custom day value.
   final int day;
 
-  /// The weekday for the hijri date.
+  /// The weekday for the Custom date.
   int get weekday => _date.weekday;
 
-  /// The time zone offset for the hijri date.
+  /// The time zone offset for the Custom date.
   Duration get timeZoneOffset => _date.timeZoneOffset;
 
   /// Returns true if [this] occurs after [other].
@@ -1846,10 +1846,10 @@ class CustomDateTime {
     return _date.difference(other._date);
   }
 
-  /// Compares this HijriDateTime object to [other],
+  /// Compares this CustomDateTime object to [other],
   /// returning zero if the values are equal.
   ///
-  /// Returns a negative value if this HijriDateTime [isBefore] [other]. It
+  /// Returns a negative value if this CustomDateTime [isBefore] [other]. It
   /// returns 0 if it [isAtSameMomentAs] [other], and returns a positive value
   /// otherwise (when this [isAfter] [other]).
   int compareTo(CustomDateTime other) {
@@ -1979,8 +1979,8 @@ class CustomDateTime {
   }
 }
 
-/// Converts and retusn the hijri date for the given gregorian date.
-CustomDateTime convertToHijriDate(DateTime date) {
+/// Converts and retusn the Custom date for the given gregorian date.
+CustomDateTime convertToCustomDate(DateTime date) {
   int day = date.day;
   int month = date.month;
   int year = date.year;
@@ -2047,7 +2047,7 @@ CustomDateTime convertToHijriDate(DateTime date) {
   return CustomDateTime(hYear, hMonth, hDate);
 }
 
-/// Converts and returns the gregorian date from the given hijri date values.
+/// Converts and returns the gregorian date from the given Custom date values.
 DateTime convertToGregorianDate(CustomDateTime? date,
     {int year = 0, int month = 0, int day = 0}) {
   if (date != null) {
@@ -2062,8 +2062,8 @@ DateTime convertToGregorianDate(CustomDateTime? date,
   if (year > 1500) {
     return DateTime(2077, 11, 16);
   } else if (year < 1356) {
-    /// Return minimum hijri date equivalent gregorian date value when
-    /// hijri year value before the minimum year value.
+    /// Return minimum Custom date equivalent gregorian date value when
+    /// Custom year value before the minimum year value.
     return DateTime(1937, 03, 14);
   }
 
